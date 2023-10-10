@@ -193,12 +193,20 @@
 			children = (
 				0B55C8B12AD475F300977D25 /* Managers */,
 				0B55C8B02AD475E900977D25 /* ViewModels */,
+				0BA411F42AD5E62B0024707D /* Models */,
 				0B55C8AF2AD475CD00977D25 /* Views */,
 				0B55C8AE2AD475BE00977D25 /* Controllers */,
 				0B55C8AD2AD475AF00977D25 /* Resources */,
 				0BA360122AD08A44008467CF /* Info.plist */,
 			);
 			path = TikTok;
+			sourceTree = "<group>";
+		};
+		0BA411F42AD5E62B0024707D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		62318F6491347C514C3F5BC9 /* Pods */ = {
