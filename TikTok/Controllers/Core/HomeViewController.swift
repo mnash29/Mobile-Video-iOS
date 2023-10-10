@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  TikTok
 //
-//  Created by 206568245 on 10/6/23.
+//  Created by mnash29 on 10/6/23.
 //
 
 import UIKit
