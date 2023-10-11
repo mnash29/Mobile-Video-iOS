@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    let horizontalScrollView: UIScrollView = {
+    private let horizontalScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.bounces = false
         scrollView.backgroundColor = .red
@@ -19,16 +19,16 @@ class HomeViewController: UIViewController {
         return scrollView
     }()
 
-    let forYouPostModels = PostModel.mockModels()
-    let followingPostModels = PostModel.mockModels()
+    private let forYouPostModels = PostModel.mockModels()
+    private let followingPostModels = PostModel.mockModels()
 
-    let forYouPagingController = UIPageViewController(
+    private let forYouPagingController = UIPageViewController(
         transitionStyle: .scroll,
         navigationOrientation: .vertical,
         options: [:]
     )
 
-    let followingPagingController = UIPageViewController(
+    private let followingPagingController = UIPageViewController(
         transitionStyle: .scroll,
         navigationOrientation: .vertical,
         options: [:]
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
         view.addSubview(horizontalScrollView)
-        setUpFeed()
+        setUpFeeds()
         horizontalScrollView.contentOffset = CGPoint(x: view.width, y: 0)
 
     }
@@ -52,14 +52,14 @@ class HomeViewController: UIViewController {
         horizontalScrollView.frame = view.bounds
     }
 
-    private func setUpFeed() {
+    private func setUpFeeds() {
         horizontalScrollView.contentSize = CGSize(width: view.width * 2, height: view.height)
 
         setUpFollowingFeed()
         setUpForYouFeed()
     }
 
-    func setUpFollowingFeed() {
+    private func setUpFollowingFeed() {
         guard let model = followingPostModels.first else {
             return
         }
@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
         followingPagingController.didMove(toParent: self)
     }
 
-    func setUpForYouFeed() {
+    private func setUpForYouFeed() {
         guard let model = forYouPostModels.first else {
             return
         }
@@ -110,6 +110,8 @@ class HomeViewController: UIViewController {
     }
 
 }
+
+// MARK: - HomeViewController DataSource
 
 extension HomeViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -155,7 +157,7 @@ extension HomeViewController: UIPageViewControllerDataSource {
         return vc
     }
 
-    var currentPosts: [PostModel] {
+    private var currentPosts: [PostModel] {
         if horizontalScrollView.contentOffset.x == 0 {
             // in Following page
             return followingPostModels
