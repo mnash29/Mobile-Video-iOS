@@ -10,6 +10,8 @@ import Foundation
 struct PostModel {
     let identifier: String
 
+    var isLikedByCurrentUser = false
+
     static func mockModels() -> [PostModel] {
         let posts = Array(0...100).compactMap({_ in
             PostModel(identifier: UUID().uuidString)

@@ -60,7 +60,7 @@
 		43D94734C00F74A7D2402D922575E33E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CDBA9A202D3E391CFBACA055BBAF9C /* Foundation.framework */; };
 		461E3EAAF181A882CF070A659122171E /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A6E42BF85F7699ACD40C009530ABBAC /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		475453293C1679D47716F8E17703824E /* Appirater-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C17FE7F5FFED5FDBA822317BA4E22402 /* Appirater-dummy.m */; };
-		493EEC1796ACFA77A28E7630060A059E /* Appirater-Appirater in Resources */ = {isa = PBXBuildFile; fileRef = 1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater-Appirater */; };
+		493EEC1796ACFA77A28E7630060A059E /* Appirater.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater.bundle */; };
 		49CD5CED02F22B7466B2578348032483 /* fi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C032B705D8A18F8FC3F61C1E922F0810 /* fi.lproj */; };
 		49EB95D582B6309BD662A018F941FD8F /* SDAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C077BD98E5C178E9283495E985F1AEB /* SDAsyncBlockOperation.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4B22FCC6460946CF83520B6CE950B497 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F174F4C9202605C55B587A3F82394EC3 /* pl.lproj */; };
@@ -253,7 +253,7 @@
 		1CA63F740825723287C419890F84BBA5 /* UIImage+ForceDecode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ForceDecode.h"; path = "SDWebImage/Core/UIImage+ForceDecode.h"; sourceTree = "<group>"; };
 		1DDA3FF2A57143619AD4DEE4822B0062 /* Appirater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Appirater.release.xcconfig; sourceTree = "<group>"; };
 		1E3E6FC8A56061C1ED7D40EF3ED37B52 /* SDImageCacheDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheDefine.h; path = SDWebImage/Core/SDImageCacheDefine.h; sourceTree = "<group>"; };
-		1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater-Appirater */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Appirater-Appirater"; path = Appirater.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Appirater.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F05A1A1D5C5E81F80721B1E4DB49709 /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = vi.lproj; sourceTree = "<group>"; };
 		215A902C6F26CE839CED2BD9EB8C4AA8 /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = da.lproj; sourceTree = "<group>"; };
 		221AC58D716EC427A89948A3E820AE33 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = it.lproj; sourceTree = "<group>"; };
@@ -781,7 +781,7 @@
 			isa = PBXGroup;
 			children = (
 				23D4D9F87518207E73E88D8FBC7C8DE3 /* Appirater.framework */,
-				1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater-Appirater */,
+				1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater.bundle */,
 				9EF16EA0AC88BCD7C8A1A5C78CE3ED23 /* Pods-TikTok */,
 				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */,
 			);
@@ -972,7 +972,7 @@
 			);
 			name = "Appirater-Appirater";
 			productName = Appirater;
-			productReference = 1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater-Appirater */;
+			productReference = 1E9CD753F6BD26760EFAA1DF57482D50 /* Appirater.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		F0149110222A4AFCA73364366CC634D9 /* Pods-TikTok */ = {
@@ -1063,7 +1063,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493EEC1796ACFA77A28E7630060A059E /* Appirater-Appirater in Resources */,
+				493EEC1796ACFA77A28E7630060A059E /* Appirater.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,11 +1363,11 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Appirater";
 				IBSC_MODULE = Appirater;
 				INFOPLIST_FILE = "Target Support Files/Appirater/ResourceBundle-Appirater-Appirater-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = Appirater;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -1483,11 +1483,11 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Appirater";
 				IBSC_MODULE = Appirater;
 				INFOPLIST_FILE = "Target Support Files/Appirater/ResourceBundle-Appirater-Appirater-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = Appirater;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
