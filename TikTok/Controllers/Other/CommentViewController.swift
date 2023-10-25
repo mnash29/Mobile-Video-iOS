@@ -13,16 +13,16 @@ protocol CommentsViewControllerDelegate: AnyObject {
 
 class CommentViewController: UIViewController {
 
+    private let post: PostModel
+    private var comments = [PostComment]()
     weak var delegate: CommentsViewControllerDelegate?
 
     private let tableView: UITableView = {
         let tableView = UITableView()
 
-        tableView.register(UITableView.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
-
-    private let post: PostModel
 
     private let closeButton: UIButton = {
         let button = UIButton()
@@ -70,7 +70,7 @@ class CommentViewController: UIViewController {
     }
 
     func fetchPostComments() {
-
+        comments = PostComment.mockComments()
     }
 
 }
@@ -79,13 +79,13 @@ class CommentViewController: UIViewController {
 
 extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
+        return comments.count    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let comment = comments[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = "This is a great post!"
+        cell.textLabel?.text = comment.text
         return cell
     }
 

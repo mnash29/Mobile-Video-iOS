@@ -28,6 +28,8 @@
 		0B82433D2AD48B8900C26D8F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0B82433C2AD48B8900C26D8F /* FirebaseCrashlytics */; };
 		0B82433F2AD48B8900C26D8F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0B82433E2AD48B8900C26D8F /* FirebaseDatabase */; };
 		0B8243412AD48B8900C26D8F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8243402AD48B8900C26D8F /* FirebaseStorage */; };
+		0B8D97A22AE9755A005A29A4 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A12AE9755A005A29A4 /* PostComment.swift */; };
+		0B8D97A42AE979C4005A29A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A32AE979C4005A29A4 /* User.swift */; };
 		0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360042AD08A41008467CF /* AppDelegate.swift */; };
 		0BA360072AD08A41008467CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360062AD08A41008467CF /* SceneDelegate.swift */; };
 		0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360082AD08A41008467CF /* HomeViewController.swift */; };
@@ -55,6 +57,8 @@
 		0B55C8D12AD4782200977D25 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		0B55C8D32AD4783500977D25 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		0B604E2A2AD60F41006D9553 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0B8D97A12AE9755A005A29A4 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
+		0B8D97A32AE979C4005A29A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0BA360012AD08A41008467CF /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA360042AD08A41008467CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA360062AD08A41008467CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				0BCCFA642AD7309D00151DDC /* PostModel.swift */,
+				0B8D97A12AE9755A005A29A4 /* PostComment.swift */,
+				0B8D97A32AE979C4005A29A4 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -390,10 +396,12 @@
 				0B55C8CA2AD477DF00977D25 /* PostViewController.swift in Sources */,
 				0B55C8B72AD4771D00977D25 /* CameraViewController.swift in Sources */,
 				0B55C8C52AD4778400977D25 /* TabBarViewController.swift in Sources */,
+				0B8D97A42AE979C4005A29A4 /* User.swift in Sources */,
 				0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */,
 				0B55C8C12AD4775E00977D25 /* SignUpViewController.swift in Sources */,
 				0B55C8D22AD4782200977D25 /* AuthenticationManager.swift in Sources */,
 				0B55C8B92AD4772900977D25 /* NotificationsViewController.swift in Sources */,
+				0B8D97A22AE9755A005A29A4 /* PostComment.swift in Sources */,
 				0B55C8BF2AD4775600977D25 /* SignInViewController.swift in Sources */,
 				0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */,
 				0B55C8BB2AD4773100977D25 /* ProfileViewController.swift in Sources */,
