@@ -30,6 +30,7 @@
 		0B8243412AD48B8900C26D8F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8243402AD48B8900C26D8F /* FirebaseStorage */; };
 		0B8D97A22AE9755A005A29A4 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A12AE9755A005A29A4 /* PostComment.swift */; };
 		0B8D97A42AE979C4005A29A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A32AE979C4005A29A4 /* User.swift */; };
+		0B8D97A62AE97DB1005A29A4 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A52AE97DB1005A29A4 /* CommentTableViewCell.swift */; };
 		0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360042AD08A41008467CF /* AppDelegate.swift */; };
 		0BA360072AD08A41008467CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360062AD08A41008467CF /* SceneDelegate.swift */; };
 		0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360082AD08A41008467CF /* HomeViewController.swift */; };
@@ -59,6 +60,7 @@
 		0B604E2A2AD60F41006D9553 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0B8D97A12AE9755A005A29A4 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		0B8D97A32AE979C4005A29A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0B8D97A52AE97DB1005A29A4 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		0BA360012AD08A41008467CF /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA360042AD08A41008467CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA360062AD08A41008467CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				0B55C8C22AD4776800977D25 /* SettingsViewController.swift */,
 				0B55C8C92AD477DF00977D25 /* PostViewController.swift */,
 				0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */,
+				0B8D97A52AE97DB1005A29A4 /* CommentTableViewCell.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0BBDB5352AE7048E004BBB1F /* CommentViewController.swift in Sources */,
 				0B55C8D42AD4783500977D25 /* HapticsManager.swift in Sources */,
 				0B604E2B2AD60F42006D9553 /* Extensions.swift in Sources */,
+				0B8D97A62AE97DB1005A29A4 /* CommentTableViewCell.swift in Sources */,
 				0B55C8D02AD4781600977D25 /* DatabaseManager.swift in Sources */,
 				0B55C8B52AD4770500977D25 /* ExploreViewController.swift in Sources */,
 				0B55C8BD2AD4774A00977D25 /* UserListViewController.swift in Sources */,

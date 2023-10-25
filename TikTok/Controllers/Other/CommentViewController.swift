@@ -20,7 +20,11 @@ class CommentViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(
+            CommentTableViewCell.self,
+            forCellReuseIdentifier: CommentTableViewCell.identifier
+        )
+
         return tableView
     }()
 
@@ -31,6 +35,8 @@ class CommentViewController: UIViewController {
         button.tintColor = .black
         return button
     }()
+
+    // MARK: - Init
 
     init(post: PostModel) {
         self.post = post
@@ -83,10 +89,24 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = comment.text
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CommentTableViewCell.identifier,
+            for: indexPath
+        ) as? CommentTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.configure(with: comment)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 
