@@ -5,6 +5,7 @@
 //  Created by mnash29 on 10/9/23.
 //
 
+import AVFoundation
 import UIKit
 
 protocol PostViewControllerDelegate: AnyObject {
@@ -66,6 +67,8 @@ class PostViewController: UIViewController {
         return label
     }()
 
+    var player: AVPlayer?
+
     // MARK: - Init
 
     init(model: PostModel) {
@@ -79,6 +82,7 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureVideo()
 
         let colors: [UIColor] = [
             .red, .green, .black, .orange, .blue, .systemPink
@@ -89,15 +93,17 @@ class PostViewController: UIViewController {
         setUpDoubleTapToLike()
 
         view.addSubview(captionLabel)
+
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         let size: CGFloat = 40
+        let tabBarHeight: CGFloat = tabBarController?.tabBar.height ?? 0
 
         let yStart: CGFloat = view.height - (size * 4) - 30 - view.safeAreaInsets.bottom -
-            (tabBarController?.tabBar.height ?? 0)
+            tabBarHeight
 
         for (index, button) in [likeButton, commentButton, shareButton].enumerated() {
             button.frame = CGRect(
@@ -113,7 +119,7 @@ class PostViewController: UIViewController {
         captionLabel.frame = CGRect(
             x: 5,
             y: view.height - view.safeAreaInsets.bottom - labelSize.height -
-                (tabBarController?.tabBar.height ?? 0),
+                tabBarHeight,
             width: view.width - size - 12,
             height: labelSize.height
         )
@@ -126,6 +132,23 @@ class PostViewController: UIViewController {
         )
 
         profileButton.layer.cornerRadius = size / 2
+    }
+
+    private func configureVideo() {
+        guard let path = Bundle.main.path(forResource: "trolls_low", ofType: "mp4") else {
+            return
+        }
+
+        let url = URL(fileURLWithPath: path)
+        player = AVPlayer(url: url)
+
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(playerLayer)
+
+        player?.volume = 0
+        player?.play()
     }
 
     func setUpButtons() {
