@@ -200,7 +200,7 @@ extension HomeViewController: UIPageViewControllerDataSource {
 }
 
 
-// MARK: - HomeViewController UIScrollView delegate methods
+// MARK: - UIScrollView delegate methods
 
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -213,9 +213,16 @@ extension HomeViewController: UIScrollViewDelegate {
     }
 }
 
-// MARK: - HomeViewController PostViewController delegate methods
+// MARK: - PostViewController delegate methods
 
 extension HomeViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
+        let user = post.user
+        let vc = ProfileViewController(user: user)
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
         horizontalScrollView.isScrollEnabled = false
 
@@ -242,6 +249,7 @@ extension HomeViewController: PostViewControllerDelegate {
     }
 }
 
+// MARK: - CommentsViewController delegate methods
 
 extension HomeViewController: CommentsViewControllerDelegate {
     func didTapCloseForComments(with viewController: CommentViewController) {

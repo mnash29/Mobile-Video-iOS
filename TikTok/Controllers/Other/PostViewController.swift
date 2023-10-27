@@ -9,6 +9,7 @@ import UIKit
 
 protocol PostViewControllerDelegate: AnyObject {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel)
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel)
 }
 
 class PostViewController: UIViewController {
@@ -40,6 +41,16 @@ class PostViewController: UIViewController {
         button.setBackgroundImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
+
+        return button
+    }()
+
+    private let profileButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "test"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
+        button.tintColor = .white
+        button.layer.masksToBounds = true
 
         return button
     }()
@@ -76,6 +87,7 @@ class PostViewController: UIViewController {
 
         setUpButtons()
         setUpDoubleTapToLike()
+
         view.addSubview(captionLabel)
     }
 
@@ -88,48 +100,68 @@ class PostViewController: UIViewController {
             (tabBarController?.tabBar.height ?? 0)
 
         for (index, button) in [likeButton, commentButton, shareButton].enumerated() {
-            button.frame = CGRect(x: view.width-size-10,
-                                  y: yStart + (CGFloat(index) * 10) + (CGFloat(index) * size),
-                                  width: size,
-                                  height: size)
+            button.frame = CGRect(
+                x: view.width-size-10,
+                y: yStart + (CGFloat(index) * 10) + (CGFloat(index) * size),
+                width: size,
+                height: size
+            )
         }
 
         captionLabel.sizeToFit()
         let labelSize = captionLabel.sizeThatFits(CGSize(width: view.width - size - 12, height: view.height))
-        captionLabel.frame = CGRect(x: 5,
-                                    y: view.height - view.safeAreaInsets.bottom - labelSize.height -
-                                        (tabBarController?.tabBar.height ?? 0),
-                                    width: view.width - size - 12,
-                                    height: labelSize.height)
+        captionLabel.frame = CGRect(
+            x: 5,
+            y: view.height - view.safeAreaInsets.bottom - labelSize.height -
+                (tabBarController?.tabBar.height ?? 0),
+            width: view.width - size - 12,
+            height: labelSize.height
+        )
+
+        profileButton.frame = CGRect(
+            x: likeButton.left,
+            y: likeButton.top - 10 - size,
+            width: size,
+            height: size
+        )
+
+        profileButton.layer.cornerRadius = size / 2
     }
 
     func setUpButtons() {
         view.addSubview(likeButton)
         view.addSubview(commentButton)
         view.addSubview(shareButton)
+        view.addSubview(profileButton)
 
-        likeButton.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
-        commentButton.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
-        shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
+        commentButton.addTarget(self, action: #selector(didTapCommentButton), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
+        profileButton.addTarget(self, action: #selector(didTapProfileButton), for: .touchUpInside)
+
     }
 
-    @objc private func didTapLike() {
+    @objc private func didTapLikeButton() {
         model.isLikedByCurrentUser = !model.isLikedByCurrentUser
 
         likeButton.tintColor = model.isLikedByCurrentUser ? .systemRed : .white
     }
 
-    @objc private func didTapComment() {
+    @objc private func didTapCommentButton() {
         delegate?.postViewController(self, didTapCommentButtonFor: model)
     }
 
-    @objc private func didTapShare() {
+    @objc private func didTapShareButton() {
         guard let url = URL(string: "https://tiktok.com") else {
             return
         }
 
         let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
         present(vc, animated: true)
+    }
+
+    @objc private func didTapProfileButton() {
+        delegate?.postViewController(self, didTapProfileButtonFor: model)
     }
 
     func setUpDoubleTapToLike() {
@@ -153,7 +185,7 @@ class PostViewController: UIViewController {
 
         UIView.animate(withDuration: 0.2) {
             imageView.alpha = 1
-            self.didTapLike()
+            self.didTapLikeButton()
         } completion: { done in
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
