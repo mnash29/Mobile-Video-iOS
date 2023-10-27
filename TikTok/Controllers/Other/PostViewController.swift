@@ -69,6 +69,8 @@ class PostViewController: UIViewController {
 
     var player: AVPlayer?
 
+    private var playerDidFinishObserver: NSObjectProtocol?
+
     // MARK: - Init
 
     init(model: PostModel) {
@@ -142,13 +144,26 @@ class PostViewController: UIViewController {
         let url = URL(fileURLWithPath: path)
         player = AVPlayer(url: url)
 
+        guard let player = player else {
+            return
+        }
+
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = view.bounds
         playerLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(playerLayer)
 
-        player?.volume = 0
-        player?.play()
+        player.volume = 0
+        player.play()
+
+        playerDidFinishObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main
+        ) { _ in
+            player.seek(to: .zero)
+            player.play()
+        }
     }
 
     func setUpButtons() {

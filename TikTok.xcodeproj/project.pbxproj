@@ -38,6 +38,13 @@
 		0BA360112AD08A44008467CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3600F2AD08A44008467CF /* LaunchScreen.storyboard */; };
 		0BBDB5352AE7048E004BBB1F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */; };
 		0BC9CF9B2AEC369B00479F6F /* trolls_low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9A2AEC369B00479F6F /* trolls_low.mp4 */; };
+		0BC9CF9D2AEC53FA00479F6F /* ExploreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9C2AEC53FA00479F6F /* ExploreSection.swift */; };
+		0BC9CF9F2AEC542200479F6F /* ExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9E2AEC542200479F6F /* ExploreCell.swift */; };
+		0BC9CFA12AEC545C00479F6F /* ExploreSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA02AEC545C00479F6F /* ExploreSectionType.swift */; };
+		0BC9CFA32AEC647400479F6F /* ExploreBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA22AEC647400479F6F /* ExploreBannerViewModel.swift */; };
+		0BC9CFA52AEC649F00479F6F /* ExplorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA42AEC649F00479F6F /* ExplorePostViewModel.swift */; };
+		0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */; };
+		0BC9CFA92AEC64CF00479F6F /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */; };
 		0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCFA642AD7309D00151DDC /* PostModel.swift */; };
 		6913493FAFD0A78BE69CBF68 /* Pods_TikTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703816A96520DA727FB77A3E /* Pods_TikTok.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +78,13 @@
 		0BA360122AD08A44008467CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		0BC9CF9A2AEC369B00479F6F /* trolls_low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = trolls_low.mp4; sourceTree = "<group>"; };
+		0BC9CF9C2AEC53FA00479F6F /* ExploreSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSection.swift; sourceTree = "<group>"; };
+		0BC9CF9E2AEC542200479F6F /* ExploreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCell.swift; sourceTree = "<group>"; };
+		0BC9CFA02AEC545C00479F6F /* ExploreSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSectionType.swift; sourceTree = "<group>"; };
+		0BC9CFA22AEC647400479F6F /* ExploreBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBannerViewModel.swift; sourceTree = "<group>"; };
+		0BC9CFA42AEC649F00479F6F /* ExplorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePostViewModel.swift; sourceTree = "<group>"; };
+		0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashtagViewModel.swift; sourceTree = "<group>"; };
+		0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 		0BCCFA642AD7309D00151DDC /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		2C3DEA9D2FA07C64E8C62721 /* Pods-TikTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikTok.debug.xcconfig"; path = "Target Support Files/Pods-TikTok/Pods-TikTok.debug.xcconfig"; sourceTree = "<group>"; };
 		703816A96520DA727FB77A3E /* Pods_TikTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +142,10 @@
 		0B55C8B02AD475E900977D25 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0BC9CFA22AEC647400479F6F /* ExploreBannerViewModel.swift */,
+				0BC9CFA42AEC649F00479F6F /* ExplorePostViewModel.swift */,
+				0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */,
+				0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -223,6 +241,9 @@
 				0BCCFA642AD7309D00151DDC /* PostModel.swift */,
 				0B8D97A12AE9755A005A29A4 /* PostComment.swift */,
 				0B8D97A32AE979C4005A29A4 /* User.swift */,
+				0BC9CF9C2AEC53FA00479F6F /* ExploreSection.swift */,
+				0BC9CF9E2AEC542200479F6F /* ExploreCell.swift */,
+				0BC9CFA02AEC545C00479F6F /* ExploreSectionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,13 +417,19 @@
 				0BBDB5352AE7048E004BBB1F /* CommentViewController.swift in Sources */,
 				0B55C8D42AD4783500977D25 /* HapticsManager.swift in Sources */,
 				0B604E2B2AD60F42006D9553 /* Extensions.swift in Sources */,
+				0BC9CF9D2AEC53FA00479F6F /* ExploreSection.swift in Sources */,
 				0B8D97A62AE97DB1005A29A4 /* CommentTableViewCell.swift in Sources */,
 				0B55C8D02AD4781600977D25 /* DatabaseManager.swift in Sources */,
 				0B55C8B52AD4770500977D25 /* ExploreViewController.swift in Sources */,
+				0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */,
 				0B55C8BD2AD4774A00977D25 /* UserListViewController.swift in Sources */,
 				0B55C8C32AD4776800977D25 /* SettingsViewController.swift in Sources */,
 				0B55C8CA2AD477DF00977D25 /* PostViewController.swift in Sources */,
+				0BC9CFA52AEC649F00479F6F /* ExplorePostViewModel.swift in Sources */,
+				0BC9CF9F2AEC542200479F6F /* ExploreCell.swift in Sources */,
 				0B55C8B72AD4771D00977D25 /* CameraViewController.swift in Sources */,
+				0BC9CFA32AEC647400479F6F /* ExploreBannerViewModel.swift in Sources */,
+				0BC9CFA92AEC64CF00479F6F /* ExploreUserViewModel.swift in Sources */,
 				0B55C8C52AD4778400977D25 /* TabBarViewController.swift in Sources */,
 				0B8D97A42AE979C4005A29A4 /* User.swift in Sources */,
 				0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */,
@@ -416,6 +443,7 @@
 				0B55C8CE2AD4780100977D25 /* StorageManager.swift in Sources */,
 				0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */,
 				0BA360072AD08A41008467CF /* SceneDelegate.swift in Sources */,
+				0BC9CFA12AEC545C00479F6F /* ExploreSectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
