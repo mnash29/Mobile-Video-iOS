@@ -27,7 +27,7 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureModels()
-
+        ExploreManager.shared.delegate = self
         view.backgroundColor = .systemBackground
         setUpSearchBar()
         setUpCollectionView()
@@ -45,109 +45,49 @@ class ExploreViewController: UIViewController {
     }
 
     func configureModels() {
-        var cells = [ExploreCell]()
-        for _ in 0...100 {
-            let cell = ExploreCell.banner(
-                viewModel: ExploreBannerViewModel(
-                    image: UIImage(named: "test"),
-                    title: "Foo",
-                    handler: {
-
-                    }
-                )
-            )
-            cells.append(cell)
-        }
-
-        var posts = [ExploreCell]()
-        for _ in 0...40 {
-            posts.append(
-                ExploreCell.post(
-                    viewModel: ExplorePostViewModel(
-                        thumbailImage: UIImage(named: "test"),
-                        caption: "This was a really long post and a long caption",
-                        handler: {
-
-                        }
-                    )
-                )
-            )
-        }
-
-        var usernames = ["kanye", "andy", "tim", "loretta", "matthew", "anna"]
-        var users = [ExploreCell]()
-        for i in 0...5 {
-            users.append(
-                ExploreCell.user(
-                    viewModel: ExploreUserViewModel(
-                        profilePictureURL: nil,
-                        username: usernames[i],
-                        followerCount: 25,
-                        handler: {
-
-                        }
-                    )
-                )
-            )
-        }
 
         sections = [
             ExploreSection(
                 type: .banners,
-                cells: cells
+                cells: ExploreManager.shared.getExploreBanners().compactMap({
+                    return ExploreCell.banner(viewModel: $0)
+                })
             ),
             ExploreSection(
                 type: .trendingPosts,
-                cells: posts
+                cells: ExploreManager.shared.getExploreTrendingPosts().compactMap({
+                    return ExploreCell.post(viewModel: $0)
+                })
             ),
             ExploreSection(
                 type: .users,
-                cells: users
+                cells: ExploreManager.shared.getExploreCreators().compactMap({
+                    return ExploreCell.user(viewModel: $0)
+                })
             ),
             ExploreSection(
                 type: .trendingHashtags,
-                cells: [
-                    .hashtag(viewModel: ExploreHashtagViewModel(
-                        icon: UIImage(systemName: "house"),
-                        text: "#foryou",
-                        count: 1,
-                        handler: {
-
-                        })),
-                    .hashtag(viewModel: ExploreHashtagViewModel(
-                        icon: UIImage(systemName: "airplane"),
-                        text: "#iphone12",
-                        count: 1,
-                        handler: {
-
-                        })),
-                    .hashtag(viewModel: ExploreHashtagViewModel(
-                        icon: UIImage(systemName: "camera"),
-                        text: "#tiktokcourse",
-                        count: 1,
-                        handler: {
-
-                        })),
-                    .hashtag(viewModel: ExploreHashtagViewModel(
-                        icon: UIImage(systemName: "bell"),
-                        text: "#m1Macbook",
-                        count: 1,
-                        handler: {
-
-                        })),
-                ]
+                cells: ExploreManager.shared.getExploreHashtags().compactMap({
+                    return ExploreCell.hashtag(viewModel: $0)
+                })
             ),
             ExploreSection(
                 type: .recommended,
-                cells: posts
+                cells: ExploreManager.shared.getExploreRecommendedPosts().compactMap({
+                    return ExploreCell.post(viewModel: $0)
+                })
             ),
             ExploreSection(
                 type: .popular,
-                cells: posts
+                cells: ExploreManager.shared.getExplorePopularPosts().compactMap({
+                    return ExploreCell.post(viewModel: $0)
+                })
             ),
             ExploreSection(
                 type: .new,
-                cells: posts
+                cells: ExploreManager.shared.getExploreRecentPosts().compactMap({
+                    return ExploreCell.post(viewModel: $0)
+                })
             ),
         ]
     }
@@ -196,7 +136,24 @@ class ExploreViewController: UIViewController {
 // MARK: - UISearchBar delegate methods
 
 extension ExploreViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Cancel",
+            style: .done,
+            target: self,
+            action: #selector(didTapCancel)
+        )
+    }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    @objc func didTapCancel() {
+        navigationItem.rightBarButtonItem = nil
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+    }
 }
 
 // MARK: - UICollectionView delegate and datasource methods
@@ -271,13 +228,13 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
 
         switch model {
         case .banner(let viewModel):
-            break
+            viewModel.handler()
         case .post(let viewModel):
-            break
+            viewModel.handler()
         case .hashtag(let viewModel):
-            break
+            viewModel.handler()
         case .user(let viewModel):
-            break
+            viewModel.handler()
         }
     }
 
@@ -439,5 +396,18 @@ extension ExploreViewController {
 
             return sectionLayout
         }
+    }
+}
+
+// MARK: - ExploreManager delegate methods
+
+extension ExploreViewController: ExploreManagerDelegate {
+    func didTapHashtag(_ hashtag: String) {
+        searchBar.text = hashtag
+        searchBar.becomeFirstResponder()
+    }
+
+    func pushViewController(_ vc: UIViewController) {
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
