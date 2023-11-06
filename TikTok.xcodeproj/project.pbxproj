@@ -52,6 +52,8 @@
 		0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */; };
 		0BC9CFA92AEC64CF00479F6F /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */; };
 		0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCFA642AD7309D00151DDC /* PostModel.swift */; };
+		0BF2B1722AF96A6A00906ADF /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2B1712AF96A6A00906ADF /* AuthButton.swift */; };
+		0BF2B1742AF96A7F00906ADF /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */; };
 		6913493FAFD0A78BE69CBF68 /* Pods_TikTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703816A96520DA727FB77A3E /* Pods_TikTok.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashtagViewModel.swift; sourceTree = "<group>"; };
 		0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 		0BCCFA642AD7309D00151DDC /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		0BF2B1712AF96A6A00906ADF /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		2C3DEA9D2FA07C64E8C62721 /* Pods-TikTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikTok.debug.xcconfig"; path = "Target Support Files/Pods-TikTok/Pods-TikTok.debug.xcconfig"; sourceTree = "<group>"; };
 		703816A96520DA727FB77A3E /* Pods_TikTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE2AA248DB87C2C9032B40B /* Pods-TikTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikTok.release.xcconfig"; path = "Target Support Files/Pods-TikTok/Pods-TikTok.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				0B3494B82AF053F1009553D3 /* ExploreHashtagCollectionViewCell.swift */,
 				0B3494B42AF0532C009553D3 /* ExplorePostCollectionViewCell.swift */,
 				0B3494B22AF05321009553D3 /* ExploreUserCollectionViewCell.swift */,
+				0BF2B1712AF96A6A00906ADF /* AuthButton.swift */,
+				0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -442,11 +448,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBDB5352AE7048E004BBB1F /* CommentViewController.swift in Sources */,
+				0BF2B1722AF96A6A00906ADF /* AuthButton.swift in Sources */,
 				0B55C8D42AD4783500977D25 /* HapticsManager.swift in Sources */,
 				0B604E2B2AD60F42006D9553 /* Extensions.swift in Sources */,
 				0BC9CF9D2AEC53FA00479F6F /* ExploreSection.swift in Sources */,
 				0B8D97A62AE97DB1005A29A4 /* CommentTableViewCell.swift in Sources */,
 				0B55C8D02AD4781600977D25 /* DatabaseManager.swift in Sources */,
+				0BF2B1742AF96A7F00906ADF /* AuthTextField.swift in Sources */,
 				0B55C8B52AD4770500977D25 /* ExploreViewController.swift in Sources */,
 				0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */,
 				0B55C8BD2AD4774A00977D25 /* UserListViewController.swift in Sources */,
