@@ -51,6 +51,10 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(horizontalScrollView)
         setUpFeeds()
+
+        // Fix inset adjustment issue when opening app
+        horizontalScrollView.contentInsetAdjustmentBehavior = .never
+
         horizontalScrollView.delegate = self
         horizontalScrollView.contentOffset = CGPoint(x: view.width, y: 0)
         setUpHeaderButtons()

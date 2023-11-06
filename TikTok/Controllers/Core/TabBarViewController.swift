@@ -14,7 +14,22 @@ class TabBarViewController: UITabBarController {
 
         setUpControllers()
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if !AuthManager.shared.isSignedIn {
+            presentSignInIfNeeded()
+        }
+    }
+
+    private func presentSignInIfNeeded() {
+        let vc = SignInViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+
+        present(navVC, animated: false, completion: nil)
+    }
 
     private func setUpControllers() {
         let home = HomeViewController()

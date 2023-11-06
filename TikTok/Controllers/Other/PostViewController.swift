@@ -60,8 +60,8 @@ class PostViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.text = "Check out this video! #FYP #ForYouPage"
-        label.font = .systemFont(ofSize: 26)
+        label.text = "Check out this video! #fyp #foryou #foryoupage"
+        label.font = .systemFont(ofSize: 24)
         label.textColor = .white
 
         return label
@@ -102,14 +102,10 @@ class PostViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         let size: CGFloat = 40
-        let tabBarHeight: CGFloat = tabBarController?.tabBar.height ?? 0
-
-        let yStart: CGFloat = view.height - (size * 4) - 30 - view.safeAreaInsets.bottom -
-            tabBarHeight
-
+        let yStart: CGFloat = view.height - (size * 4) - 30 - view.safeAreaInsets.bottom
         for (index, button) in [likeButton, commentButton, shareButton].enumerated() {
             button.frame = CGRect(
-                x: view.width-size-10,
+                x: view.width - size - 10,
                 y: yStart + (CGFloat(index) * 10) + (CGFloat(index) * size),
                 width: size,
                 height: size
@@ -120,8 +116,7 @@ class PostViewController: UIViewController {
         let labelSize = captionLabel.sizeThatFits(CGSize(width: view.width - size - 12, height: view.height))
         captionLabel.frame = CGRect(
             x: 5,
-            y: view.height - view.safeAreaInsets.bottom - labelSize.height -
-                tabBarHeight,
+            y: view.height - 10 - view.safeAreaInsets.bottom - labelSize.height,
             width: view.width - size - 12,
             height: labelSize.height
         )
