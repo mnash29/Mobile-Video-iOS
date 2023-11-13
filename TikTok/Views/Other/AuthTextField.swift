@@ -39,10 +39,12 @@ class AuthTextField: UITextField {
 
     private func configure() {
         if type == .password {
+            textContentType = .oneTimeCode
             isSecureTextEntry = true
         }
 
         if type == .email {
+            textContentType = .emailAddress
             keyboardType = .emailAddress
         }
 
