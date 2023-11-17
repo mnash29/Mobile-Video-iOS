@@ -91,6 +91,15 @@
       }
     },
     {
+      "identity" : "progresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/relatedcode/ProgressHUD",
+      "state" : {
+        "revision" : "46792db49f80454879a939f9b2be31bb61c37b0c",
+        "version" : "13.8.6"
+      }
+    },
+    {
       "identity" : "promises",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",

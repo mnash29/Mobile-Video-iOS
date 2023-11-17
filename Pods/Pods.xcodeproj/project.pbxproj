@@ -1361,6 +1361,7 @@
 			baseConfigurationReference = E3EAEE1706A147CE6D7F0D8BF63A2F45 /* Appirater.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Appirater";
+				DEVELOPMENT_TEAM = GN3KWRY8X5;
 				IBSC_MODULE = Appirater;
 				INFOPLIST_FILE = "Target Support Files/Appirater/ResourceBundle-Appirater-Appirater-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1481,6 +1482,7 @@
 			baseConfigurationReference = 1DDA3FF2A57143619AD4DEE4822B0062 /* Appirater.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Appirater";
+				DEVELOPMENT_TEAM = GN3KWRY8X5;
 				IBSC_MODULE = Appirater;
 				INFOPLIST_FILE = "Target Support Files/Appirater/ResourceBundle-Appirater-Appirater-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

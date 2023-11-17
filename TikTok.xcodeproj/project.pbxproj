@@ -44,6 +44,7 @@
 		0BA360112AD08A44008467CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3600F2AD08A44008467CF /* LaunchScreen.storyboard */; };
 		0BB0EE842AF576C20060CDC0 /* explore.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB0EE832AF576C10060CDC0 /* explore.json */; };
 		0BB0EE862AF57BE90060CDC0 /* ExploreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB0EE852AF57BE90060CDC0 /* ExploreManager.swift */; };
+		0BB540EF2B08171F006AED19 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB540EE2B08171F006AED19 /* ProgressHUD */; };
 		0BBDB5352AE7048E004BBB1F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */; };
 		0BC9CF9B2AEC369B00479F6F /* trolls_low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9A2AEC369B00479F6F /* trolls_low.mp4 */; };
 		0BC9CF9D2AEC53FA00479F6F /* ExploreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9C2AEC53FA00479F6F /* ExploreSection.swift */; };
@@ -117,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B82433F2AD48B8900C26D8F /* FirebaseDatabase in Frameworks */,
+				0BB540EF2B08171F006AED19 /* ProgressHUD in Frameworks */,
 				0B8243392AD48B8900C26D8F /* FirebaseAnalytics in Frameworks */,
 				0B82433D2AD48B8900C26D8F /* FirebaseCrashlytics in Frameworks */,
 				0B82433B2AD48B8900C26D8F /* FirebaseAuth in Frameworks */,
@@ -328,6 +330,7 @@
 				0B82433C2AD48B8900C26D8F /* FirebaseCrashlytics */,
 				0B82433E2AD48B8900C26D8F /* FirebaseDatabase */,
 				0B8243402AD48B8900C26D8F /* FirebaseStorage */,
+				0BB540EE2B08171F006AED19 /* ProgressHUD */,
 			);
 			productName = TikTok;
 			productReference = 0BA360012AD08A41008467CF /* TikTok.app */;
@@ -359,6 +362,7 @@
 			mainGroup = 0BA35FF82AD08A41008467CF;
 			packageReferences = (
 				0B8243372AD48B8900C26D8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0BB540ED2B08171F006AED19 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 0BA360022AD08A41008467CF /* Products */;
 			projectDirPath = "";
@@ -635,7 +639,8 @@
 				DEVELOPMENT_TEAM = GN3KWRY8X5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TikTok/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = TikTok;
+				INFOPLIST_KEY_CFBundleDisplayName = TikTokDos;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -664,7 +669,8 @@
 				DEVELOPMENT_TEAM = GN3KWRY8X5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TikTok/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = TikTok;
+				INFOPLIST_KEY_CFBundleDisplayName = TikTokDos;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -714,6 +720,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		0BB540ED2B08171F006AED19 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
+			requirement = {
+				kind = exactVersion;
+				version = 13.8.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -741,6 +755,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B8243372AD48B8900C26D8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		0BB540EE2B08171F006AED19 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BB540ED2B08171F006AED19 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
