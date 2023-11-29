@@ -12,6 +12,16 @@ class CaptionViewController: UIViewController {
 
     let videoURL: URL
 
+    private let captionTextView: UITextView = {
+        let textView = UITextView()
+        textView.contentInset = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        textView.backgroundColor = .secondarySystemBackground
+        textView.layer.cornerRadius = 8
+        textView.layer.masksToBounds = true
+
+        return textView
+    }()
+
     // MARK: - Init
 
     init(videoURL: URL) {
@@ -36,13 +46,30 @@ class CaptionViewController: UIViewController {
             target: self,
             action: #selector(didTapPost)
         )
+        view.addSubview(captionTextView)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
+        captionTextView.frame = CGRect(
+            x: 5,
+            y: view.safeAreaInsets.top + 5,
+            width: view.width - 10,
+            height: 150
+        ).integral
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        captionTextView.becomeFirstResponder()
     }
 
     @objc private func didTapPost() {
+        captionTextView.resignFirstResponder()
+        let caption = captionTextView.text ?? ""
+
         // Generate unique video name based on ID
         let newVideoName = StorageManager.shared.generateVideoName()
 
@@ -54,7 +81,7 @@ class CaptionViewController: UIViewController {
             DispatchQueue.main.async {
                 if success {
                     // Update database
-                    DatabaseManager.shared.insertPost(fileName: newVideoName) { databaseUpdated in
+                    DatabaseManager.shared.insertPost(fileName: newVideoName, caption: caption) { databaseUpdated in
                         if databaseUpdated {
                             HapticsManager.shared.vibrate(for: .success)
                             ProgressHUD.dismiss()
