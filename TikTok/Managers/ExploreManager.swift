@@ -2,7 +2,7 @@
 //  ExploreManager.swift
 //  TikTok
 //
-//  Created by 206568245 on 11/3/23.
+//  Created by mnash29 on 11/3/23.
 //
 
 import Foundation

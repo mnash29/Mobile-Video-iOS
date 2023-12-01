@@ -2,7 +2,7 @@
 //  ExploreHashtagViewModel.swift
 //  TikTok
 //
-//  Created by 206568245 on 10/27/23.
+//  Created by mnash29 on 10/27/23.
 //
 
 import Foundation

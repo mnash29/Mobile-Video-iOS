@@ -2,7 +2,7 @@
 //  ExploreUserCollectionViewCell.swift
 //  TikTok
 //
-//  Created by 206568245 on 10/30/23.
+//  Created by mnash29 on 10/30/23.
 //
 
 import UIKit

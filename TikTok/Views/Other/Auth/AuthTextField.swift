@@ -2,7 +2,7 @@
 //  AuthTextField.swift
 //  TikTok
 //
-//  Created by 206568245 on 11/6/23.
+//  Created by mnash29 on 11/6/23.
 //
 
 import UIKit
