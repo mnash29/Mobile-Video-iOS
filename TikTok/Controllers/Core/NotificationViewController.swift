@@ -128,7 +128,6 @@ extension NotificationsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = notifications[indexPath.row]
-        let basicCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         switch model.type {
 
@@ -137,28 +136,32 @@ extension NotificationsViewController: UITableViewDataSource {
                 withIdentifier: NotificationPostLikeTableViewCell.identifier,
                 for: indexPath
             ) as? NotificationPostLikeTableViewCell else {
-                return basicCell
+                return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
-            cell.configure(with: postName)
+            cell.configure(with: postName, model: model)
             return cell
         case .userFollow(username: let username):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: NotificationUserFollowTableViewCell.identifier,
                 for: indexPath
             ) as? NotificationUserFollowTableViewCell else {
-                return basicCell
+                return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
-            cell.configure(with: username)
+            cell.configure(with: username, model: model)
             return cell
         case .postComment(postName: let postName):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: NotificationPostCommentTableViewCell.identifier,
                 for: indexPath
             ) as? NotificationPostCommentTableViewCell else {
-                return basicCell
+                return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
-            cell.configure(with: postName)
+            cell.configure(with: postName, model: model)
             return cell
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
