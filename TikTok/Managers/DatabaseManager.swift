@@ -81,6 +81,10 @@ final class DatabaseManager {
 
     }
 
+    public func follow(username: String, completion: @escaping (Bool) -> Void) {
+        completion(true)
+    }
+
     public func insertPost(fileName: String, caption: String, completion: @escaping (Bool) -> Void) {
         guard let username = UserDefaults.standard.string(forKey: "username") else {
             completion(false)

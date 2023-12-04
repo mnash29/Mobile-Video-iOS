@@ -35,7 +35,7 @@ class TabBarViewController: UITabBarController {
         let home = HomeViewController()
         let explore = ExploreViewController()
         let camera = CameraViewController()
-        let notifications = NotificationsViewController()
+        let notifications = NotificationViewController()
         let profile = ProfileViewController(
             user: User(username: "kanyewest",
                        profilePictureURL: nil,
@@ -59,12 +59,22 @@ class TabBarViewController: UITabBarController {
         cameraNav.navigationBar.shadowImage = UIImage()
         cameraNav.navigationBar.tintColor = .white
 
+        nav3.navigationBar.tintColor = .label
+
         // Assign a tab bar item to each view controller
         nav1.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "binoculars"), tag: 2)
         cameraNav.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "camera"), tag: 3)
         nav3.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "bell"), tag: 4)
         nav4.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.circle"), tag: 5)
+
+        if #available(iOS 14.0, *) {
+            nav1.navigationItem.backButtonDisplayMode = .minimal
+            nav2.navigationItem.backButtonDisplayMode = .minimal
+            cameraNav.navigationItem.backButtonDisplayMode = .minimal
+            nav3.navigationItem.backButtonDisplayMode = .minimal
+            nav4.navigationItem.backButtonDisplayMode = .minimal
+        }
 
         setViewControllers([nav1, nav2, cameraNav, nav3, nav4], animated: false)
         

@@ -1,5 +1,5 @@
 //
-//  NotificationsViewController.swift
+//  NotificationViewController.swift
 //  TikTok
 //
 //  Created by mnash29 on 10/9/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController, UITableViewDelegate {
+class NotificationViewController: UIViewController, UITableViewDelegate {
 
     private let noNotificationLabel: UILabel = {
         let label = UILabel()
@@ -132,7 +132,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
 }
 
 // MARK: - NotificationViewController datasource methods
-extension NotificationsViewController: UITableViewDataSource {
+extension NotificationViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -154,6 +154,7 @@ extension NotificationsViewController: UITableViewDataSource {
             ) as? NotificationPostLikeTableViewCell else {
                 return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
+            cell.delegate = self
             cell.configure(with: postName, model: model)
             return cell
         case .userFollow(username: let username):
@@ -163,6 +164,7 @@ extension NotificationsViewController: UITableViewDataSource {
             ) as? NotificationUserFollowTableViewCell else {
                 return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
+            cell.delegate = self
             cell.configure(with: username, model: model)
             return cell
         case .postComment(postName: let postName):
@@ -172,6 +174,7 @@ extension NotificationsViewController: UITableViewDataSource {
             ) as? NotificationPostCommentTableViewCell else {
                 return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
+            cell.delegate = self
             cell.configure(with: postName, model: model)
             return cell
         }
@@ -210,5 +213,54 @@ extension NotificationsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+
+// MARK: - NotificationViewController user follow delegate methods
+
+extension NotificationViewController: NotificationUserFollowTableViewCellDelegate {
+    func notificationUserFollowTableViewCell(_ cell: NotificationUserFollowTableViewCell, didTapFollowFor username: String) {
+        DatabaseManager.shared.follow(username: username) { success in
+            if !success {
+                print("Somthing failed")
+            }
+        }
+    }
+    
+    func notificationUserFollowTableViewCell(_ cell: NotificationUserFollowTableViewCell, didTapAvatarFor username: String) {
+        let vc = ProfileViewController(
+            user: User(
+                username: username,
+                profilePictureURL: nil,
+                identifier: "123"
+            )
+        )
+        vc.title = username.uppercased()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+
+// MARK: - NotificationViewController post like delegate methods
+
+extension NotificationViewController: NotificationPostLikeTableViewCellDelegate {
+    func notificationPostLikeTableViewCell(_ cell: NotificationPostLikeTableViewCell, didTapPostWith identifier: String) {
+        openPost(with: identifier)
+    }
+}
+
+// MARK: - NotificationViewController post comment delegate methods
+
+extension NotificationViewController: NotificationPostCommentTableViewCellDelegate {
+    func notificationPostCommentTableViewCell(_ cell: NotificationPostCommentTableViewCell, didTapPostWith identifier: String) {
+        openPost(with: identifier)
+    }
+}
+
+extension NotificationViewController {
+    func openPost(with identifier: String) {
+        let vc = PostViewController(model: PostModel(identifier: identifier))
+        vc.title = "Video"
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
