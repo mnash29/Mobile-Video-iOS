@@ -59,6 +59,8 @@
 		0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */; };
 		0BC9CFA92AEC64CF00479F6F /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */; };
 		0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCFA642AD7309D00151DDC /* PostModel.swift */; };
+		0BD3AAEA2B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */; };
+		0BD3AAEC2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3AAEB2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift */; };
 		0BF2B1722AF96A6A00906ADF /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2B1712AF96A6A00906ADF /* AuthButton.swift */; };
 		0BF2B1742AF96A7F00906ADF /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */; };
 		6913493FAFD0A78BE69CBF68 /* Pods_TikTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703816A96520DA727FB77A3E /* Pods_TikTok.framework */; };
@@ -113,6 +115,8 @@
 		0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashtagViewModel.swift; sourceTree = "<group>"; };
 		0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 		0BCCFA642AD7309D00151DDC /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		0BD3AAEB2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		0BF2B1712AF96A6A00906ADF /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		2C3DEA9D2FA07C64E8C62721 /* Pods-TikTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikTok.debug.xcconfig"; path = "Target Support Files/Pods-TikTok/Pods-TikTok.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				0BC9CFA62AEC64BA00479F6F /* ExploreHashtagViewModel.swift */,
 				0BC9CFA42AEC649F00479F6F /* ExplorePostViewModel.swift */,
 				0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */,
+				0BD3AAEB2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				0BB62BDB2B1AA03B0093A4FF /* Auth */,
 				0B88DA6A2B0432B00092A6DF /* RecordButton.swift */,
 				0BB62BDE2B1AA07D0093A4FF /* Notification */,
+				0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				0B88DA6D2B043CFD0092A6DF /* CaptionViewController.swift in Sources */,
 				0BB62BE22B1AA0A50093A4FF /* NotificationPostCommentTableViewCell.swift in Sources */,
 				0BC9CF9F2AEC542200479F6F /* ExploreCell.swift in Sources */,
+				0BD3AAEC2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift in Sources */,
 				0B55C8B72AD4771D00977D25 /* CameraViewController.swift in Sources */,
 				0BC9CFA32AEC647400479F6F /* ExploreBannerViewModel.swift in Sources */,
 				0BC9CFA92AEC64CF00479F6F /* ExploreUserViewModel.swift in Sources */,
@@ -521,6 +528,7 @@
 				0B8D97A42AE979C4005A29A4 /* User.swift in Sources */,
 				0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */,
 				0B55C8C12AD4775E00977D25 /* SignUpViewController.swift in Sources */,
+				0BD3AAEA2B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				0B55C8D22AD4782200977D25 /* AuthenticationManager.swift in Sources */,
 				0B88DA6B2B0432B00092A6DF /* RecordButton.swift in Sources */,
 				0B55C8B92AD4772900977D25 /* NotificationViewController.swift in Sources */,
