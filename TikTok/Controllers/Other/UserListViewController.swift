@@ -53,6 +53,8 @@ class UserListViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
+        tableView.frame = view.bounds
     }
 
 }

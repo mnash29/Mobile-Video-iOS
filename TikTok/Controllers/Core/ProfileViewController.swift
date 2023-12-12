@@ -127,6 +127,16 @@ extension ProfileViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
 
+        header.delegate = self
+
+        let viewModel = ProfileHeaderViewModel(
+            avatarImageURL: nil,
+            followerCount: 120,
+            followingCount: 200,
+            isFollowing: false
+        )
+        header.configure(with: viewModel)
+
         return header
     }
 
@@ -144,7 +154,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - ProfileHeaderCollectionReusableViewDelegate methods
 
 extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
-    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapPrimaryButtonWith: String) {
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapPrimaryButtonWith: ProfileHeaderViewModel) {
         guard let currentUsername = UserDefaults.standard.string(forKey: "username") else { return }
 
         if self.user.username == currentUsername {
@@ -155,11 +165,11 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
         }
     }
     
-    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowersButtonWith: String) {
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowersButtonWith: ProfileHeaderViewModel) {
 
     }
     
-    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowingButtonWith: String) {
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowingButtonWith: ProfileHeaderViewModel) {
         
     }
 
