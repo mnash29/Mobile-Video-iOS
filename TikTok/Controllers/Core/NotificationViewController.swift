@@ -117,6 +117,13 @@ class NotificationViewController: UIViewController, UITableViewDelegate {
         tableView.reloadData()
     }
 
+    func openPost(with identifier: String) {
+        let vc = PostViewController(model: PostModel(identifier: identifier))
+        vc.delegate = self
+        vc.title = "Video"
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     @objc func didPullToRefresh(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
 
@@ -193,7 +200,7 @@ extension NotificationViewController: UITableViewDataSource {
             return
         }
 
-        var model = notifications[indexPath.row]
+        let model = notifications[indexPath.row]
         model.isHidden = true
 
         DatabaseManager.shared.markNotificationAsHidden(notificationID: model.identifier) { [weak self] success in
@@ -216,7 +223,7 @@ extension NotificationViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - NotificationViewController user follow delegate methods
+// MARK: - NotificationUserFollowTableViewCellDelegate methods
 
 extension NotificationViewController: NotificationUserFollowTableViewCellDelegate {
     func notificationUserFollowTableViewCell(_ cell: NotificationUserFollowTableViewCell, didTapFollowFor username: String) {
@@ -241,7 +248,7 @@ extension NotificationViewController: NotificationUserFollowTableViewCellDelegat
 
 }
 
-// MARK: - NotificationViewController post like delegate methods
+// MARK: - NotificationPostLikeTableViewCellDelegate methods
 
 extension NotificationViewController: NotificationPostLikeTableViewCellDelegate {
     func notificationPostLikeTableViewCell(_ cell: NotificationPostLikeTableViewCell, didTapPostWith identifier: String) {
@@ -249,7 +256,7 @@ extension NotificationViewController: NotificationPostLikeTableViewCellDelegate 
     }
 }
 
-// MARK: - NotificationViewController post comment delegate methods
+// MARK: - NotificationPostCommentTableViewCellDelegate methods
 
 extension NotificationViewController: NotificationPostCommentTableViewCellDelegate {
     func notificationPostCommentTableViewCell(_ cell: NotificationPostCommentTableViewCell, didTapPostWith identifier: String) {
@@ -257,10 +264,18 @@ extension NotificationViewController: NotificationPostCommentTableViewCellDelega
     }
 }
 
-extension NotificationViewController {
-    func openPost(with identifier: String) {
-        let vc = PostViewController(model: PostModel(identifier: identifier))
-        vc.title = "Video"
+// MARK: - PostViewControllerDelegate methods
+
+extension NotificationViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        print("didTapCommentButtonFor not configured")
+    }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
+        let user = post.user
+        let vc = ProfileViewController(user: user)
+
         navigationController?.pushViewController(vc, animated: true)
     }
+
 }
