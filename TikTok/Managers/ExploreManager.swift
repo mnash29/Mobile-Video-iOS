@@ -117,6 +117,7 @@ final class ExploreManager {
             ) { [weak self] in
                 DispatchQueue.main.async {
                     let vc = PostViewController(model: PostModel(identifier: model.id))
+                    vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -135,6 +136,7 @@ final class ExploreManager {
             ) {[weak self] in
                 DispatchQueue.main.async {
                     let vc = PostViewController(model: PostModel(identifier: model.id))
+                    vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -153,6 +155,7 @@ final class ExploreManager {
             ) {[weak self] in
                 DispatchQueue.main.async {
                     let vc = PostViewController(model: PostModel(identifier: model.id))
+                    vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -171,6 +174,7 @@ final class ExploreManager {
             ) {[weak self] in
                 DispatchQueue.main.async {
                     let vc = PostViewController(model: PostModel(identifier: model.id))
+                    vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -195,6 +199,22 @@ final class ExploreManager {
         }
 
     }
+}
+
+// MARK: - PostViewControllerDelegate methods
+
+extension ExploreManager: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        print("ExploreManager.didTapCommentButtonFor not configured.")
+    }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
+        let user = post.user
+        let vc = ProfileViewController(user: user)
+
+        delegate?.pushViewController(vc)
+    }
+
 }
 
 struct ExploreResponse: Codable {
