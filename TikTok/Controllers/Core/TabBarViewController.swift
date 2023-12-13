@@ -36,10 +36,12 @@ class TabBarViewController: UITabBarController {
         let explore = ExploreViewController()
         let camera = CameraViewController()
         let notifications = NotificationViewController()
+
+        let cachedURLString = UserDefaults.standard.string(forKey: "profile_image_url")
         let profile = ProfileViewController(
             user: User(
                 username: UserDefaults.standard.string(forKey: "username")?.uppercased() ?? "Me",
-                profilePictureURL: nil,
+                profilePictureURL: URL(string: cachedURLString ?? ""),
                 identifier: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
             )
         )

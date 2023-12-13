@@ -15,6 +15,10 @@ final class DatabaseManager {
 
     private init() {}
 
+    private func getUsername() -> String? {
+        return UserDefaults.standard.string(forKey: "username")
+    }
+
     // Public methods
 
     public func insertUser(with email: String, username: String, completion: @escaping (Bool) -> Void) {
@@ -123,6 +127,28 @@ final class DatabaseManager {
                     completion(true)
                 }
             }
+        }
+    }
+
+    public func getPosts(for user: User, completion: @escaping ([PostModel]) -> Void) {
+        let path = "users/\(user.username.lowercased())/posts"
+        database.child(path).observeSingleEvent(of: .value) { snapshot in
+            guard let posts = snapshot.value as? [[String: String]] else { 
+                completion([])
+                return
+            }
+
+            let models: [PostModel] = posts.compactMap({
+                var model = PostModel(
+                    identifier: UUID().uuidString,
+                    user: user
+                )
+                model.fileName = $0["name"] ?? ""
+                model.caption = $0["caption"] ?? ""
+                return model
+            })
+            
+            completion(models)
         }
     }
 }

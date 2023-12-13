@@ -10,11 +10,13 @@ import SDWebImage
 
 protocol ProfileHeaderCollectionReusableViewDelegate: AnyObject {
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
-                                             didTapPrimaryButtonWith: ProfileHeaderViewModel)
+                                             didTapPrimaryButtonWith viewModel: ProfileHeaderViewModel)
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
-                                             didTapFollowersButtonWith: ProfileHeaderViewModel)
+                                             didTapFollowersButtonWith viewModel: ProfileHeaderViewModel)
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
-                                             didTapFollowingButtonWith: ProfileHeaderViewModel)
+                                             didTapFollowingButtonWith viewModel: ProfileHeaderViewModel)
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
+                                             didTapAvatarFor viewModel: ProfileHeaderViewModel)
 }
 
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
@@ -76,6 +78,10 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         backgroundColor = .systemBackground
         addSubviews()
         configureButtons()
+
+        let avatarTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))
+        avatarImageView.addGestureRecognizer(avatarTapGestureRecognizer)
+        avatarImageView.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
@@ -148,6 +154,12 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         guard let viewModel = self.viewModel else { return }
         delegate?.profileHeaderCollectionReusableView(self,
                                                       didTapFollowingButtonWith: viewModel)
+    }
+
+    @objc func didTapAvatar() {
+        guard let viewModel = self.viewModel else { return }
+        delegate?.profileHeaderCollectionReusableView(self,
+                                                      didTapAvatarFor: viewModel)
     }
 
     func configure(with viewModel: ProfileHeaderViewModel) {

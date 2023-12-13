@@ -116,7 +116,14 @@ final class ExploreManager {
                 caption: model.caption
             ) { [weak self] in
                 DispatchQueue.main.async {
-                    let vc = PostViewController(model: PostModel(identifier: model.id))
+                    let vc = PostViewController(model: PostModel(
+                        identifier: model.id,
+                        user: User(
+                            username: "kanyewest",
+                            profilePictureURL: nil,
+                            identifier: UUID().uuidString
+                        )
+                    ))
                     vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
@@ -135,7 +142,14 @@ final class ExploreManager {
                 caption: model.caption
             ) {[weak self] in
                 DispatchQueue.main.async {
-                    let vc = PostViewController(model: PostModel(identifier: model.id))
+                    let vc = PostViewController(model: PostModel(
+                        identifier: model.id,
+                        user: User(
+                            username: "kanyewest",
+                            profilePictureURL: nil,
+                            identifier: UUID().uuidString
+                        )
+                    ))
                     vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
@@ -154,7 +168,14 @@ final class ExploreManager {
                 caption: model.caption
             ) {[weak self] in
                 DispatchQueue.main.async {
-                    let vc = PostViewController(model: PostModel(identifier: model.id))
+                    let vc = PostViewController(model: PostModel(
+                        identifier: model.id,
+                        user: User(
+                            username: "kanyewest",
+                            profilePictureURL: nil,
+                            identifier: UUID().uuidString
+                        )
+                    ))
                     vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }
@@ -173,7 +194,14 @@ final class ExploreManager {
                 caption: model.caption
             ) {[weak self] in
                 DispatchQueue.main.async {
-                    let vc = PostViewController(model: PostModel(identifier: model.id))
+                    let vc = PostViewController(model: PostModel(
+                        identifier: model.id,
+                        user: User(
+                            username: "kanyewest",
+                            profilePictureURL: nil,
+                            identifier: UUID().uuidString
+                        )
+                    ))
                     vc.delegate = self
                     self?.delegate?.pushViewController(vc)
                 }

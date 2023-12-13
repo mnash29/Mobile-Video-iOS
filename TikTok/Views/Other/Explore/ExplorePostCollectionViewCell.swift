@@ -71,4 +71,8 @@ class ExplorePostCollectionViewCell: UICollectionViewCell {
         captionLabel.text = viewModel.caption
 
     }
+
+    func handler() {
+        print("ExplorePostCollectionViewCell.handler()")
+    }
 }

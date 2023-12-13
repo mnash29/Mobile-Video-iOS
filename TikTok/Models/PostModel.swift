@@ -9,14 +9,21 @@ import Foundation
 
 struct PostModel {
     let identifier: String
-
-    let user = User(username: "kanyewest", profilePictureURL: nil, identifier: UUID().uuidString)
-
+    let user: User
+    var fileName: String = ""
+    var caption: String = ""
     var isLikedByCurrentUser = false
 
     static func mockModels() -> [PostModel] {
-        let posts = Array(0...100).compactMap({_ in
-            PostModel(identifier: UUID().uuidString)
+        let posts = Array(0...100).compactMap({ _ in
+            PostModel(
+                identifier: UUID().uuidString,
+                user: User(
+                    username: "kanyewest",
+                    profilePictureURL: nil,
+                    identifier: UUID().uuidString
+                )
+            )
         })
 
         return posts

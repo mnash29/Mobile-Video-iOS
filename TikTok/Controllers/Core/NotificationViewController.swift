@@ -118,7 +118,14 @@ class NotificationViewController: UIViewController, UITableViewDelegate {
     }
 
     func openPost(with identifier: String) {
-        let vc = PostViewController(model: PostModel(identifier: identifier))
+        let vc = PostViewController(model: PostModel(
+            identifier: identifier,
+            user: User(
+                username: "kanyewest",
+                profilePictureURL: nil,
+                identifier: UUID().uuidString
+            )
+        ))
         vc.delegate = self
         vc.title = "Video"
         navigationController?.pushViewController(vc, animated: true)
