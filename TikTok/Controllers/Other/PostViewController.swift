@@ -102,6 +102,8 @@ class PostViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(videoView)
@@ -155,34 +157,22 @@ class PostViewController: UIViewController {
         profileButton.layer.cornerRadius = size / 2
     }
 
+    // MARK: - Video Playback
+
     private func configureVideo() {
         StorageManager.shared.getDownloadURL(for: model) { [weak self] result in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
 
-                strongSelf.spinner.stopAnimating()
-                strongSelf.spinner.removeFromSuperview()
-
                 switch result {
                 case .success(let url):
                     strongSelf.player = AVPlayer(url: url)
+                    
+                    strongSelf.addPlayerSubLayer(with: strongSelf.player)
+                    strongSelf.playVideo(with: strongSelf.player)
+                    strongSelf.stopActivityIndicator()
 
-                    let playerLayer = AVPlayerLayer(player: strongSelf.player)
-                    playerLayer.frame = strongSelf.view.bounds
-                    playerLayer.videoGravity = .resizeAspectFill
-                    strongSelf.videoView.layer.addSublayer(playerLayer)
-
-                    strongSelf.player?.volume = 0
-                    strongSelf.player?.play()
-
-                    strongSelf.playerDidFinishObserver = NotificationCenter.default.addObserver(
-                        forName: .AVPlayerItemDidPlayToEndTime,
-                        object: strongSelf.player?.currentItem,
-                        queue: .main
-                    ) { _ in
-                        strongSelf.player?.seek(to: .zero)
-                        strongSelf.player?.play()
-                    }
+                    strongSelf.addPlayerDidFinishWithObserver(with: strongSelf.player)
                 case .failure:
                     guard let path = Bundle.main.path(forResource: "trolls_low", ofType: "mp4") else {
                         return
@@ -191,27 +181,53 @@ class PostViewController: UIViewController {
                     let url = URL(fileURLWithPath: path)
                     strongSelf.player = AVPlayer(url: url)
 
-                    let playerLayer = AVPlayerLayer(player: strongSelf.player)
-                    playerLayer.frame = strongSelf.view.bounds
-                    playerLayer.videoGravity = .resizeAspectFill
-                    strongSelf.videoView.layer.addSublayer(playerLayer)
+                    strongSelf.addPlayerSubLayer(with: strongSelf.player)
+                    strongSelf.playVideo(with: strongSelf.player)
+                    strongSelf.stopActivityIndicator()
 
-                    strongSelf.player?.volume = 0
-                    strongSelf.player?.play()
-
-                    strongSelf.playerDidFinishObserver = NotificationCenter.default.addObserver(
-                        forName: .AVPlayerItemDidPlayToEndTime,
-                        object: strongSelf.player?.currentItem,
-                        queue: .main
-                    ) { _ in
-                        strongSelf.player?.seek(to: .zero)
-                        strongSelf.player?.play()
-                    }
+                    strongSelf.addPlayerDidFinishWithObserver(with: strongSelf.player)
                 }
             }
         }
 
     }
+
+    func playVideo(with player: AVPlayer?) {
+        guard let player = player else { return }
+
+        player.volume = 0
+        player.play()
+    }
+
+    func addPlayerSubLayer(with: AVPlayer?) {
+        guard let player = player else { return }
+
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+
+        videoView.layer.addSublayer(playerLayer)
+    }
+
+    func addPlayerDidFinishWithObserver(with player: AVPlayer?) {
+        guard let player = player else { return }
+
+        playerDidFinishObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main,
+            using: { _ in
+                player.seek(to: .zero)
+                player.play()
+            })
+    }
+
+    func stopActivityIndicator() {
+        spinner.stopAnimating()
+        spinner.removeFromSuperview()
+    }
+
+    // MARK: - Buttons
 
     func setUpButtons() {
         view.addSubview(likeButton)
@@ -225,6 +241,16 @@ class PostViewController: UIViewController {
         profileButton.addTarget(self, action: #selector(didTapProfileButton), for: .touchUpInside)
 
     }
+
+    func setUpDoubleTapToLike() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didDoubleTap(_:)))
+        tap.numberOfTapsRequired = 2
+
+        view.addGestureRecognizer(tap)
+        view.isUserInteractionEnabled = true
+    }
+
+    // MARK: - Selectors
 
     @objc private func didTapLikeButton() {
         model.isLikedByCurrentUser = !model.isLikedByCurrentUser
@@ -247,14 +273,6 @@ class PostViewController: UIViewController {
 
     @objc private func didTapProfileButton() {
         delegate?.postViewController(self, didTapProfileButtonFor: model)
-    }
-
-    func setUpDoubleTapToLike() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didDoubleTap(_:)))
-        tap.numberOfTapsRequired = 2
-
-        view.addGestureRecognizer(tap)
-        view.isUserInteractionEnabled = true
     }
 
     @objc private func didDoubleTap(_ gesture: UITapGestureRecognizer) {
