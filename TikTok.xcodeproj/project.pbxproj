@@ -62,6 +62,7 @@
 		0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCFA642AD7309D00151DDC /* PostModel.swift */; };
 		0BD3AAEA2B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */; };
 		0BD3AAEC2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3AAEB2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift */; };
+		0BD7C8AF2B2B79630053A60D /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD7C8AE2B2B79630053A60D /* PostCollectionViewCell.swift */; };
 		0BF2B1722AF96A6A00906ADF /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2B1712AF96A6A00906ADF /* AuthButton.swift */; };
 		0BF2B1742AF96A7F00906ADF /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */; };
 		6913493FAFD0A78BE69CBF68 /* Pods_TikTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703816A96520DA727FB77A3E /* Pods_TikTok.framework */; };
@@ -119,6 +120,7 @@
 		0BCCFA642AD7309D00151DDC /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		0BD3AAEB2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		0BD7C8AE2B2B79630053A60D /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BF2B1712AF96A6A00906ADF /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		0BF2B1732AF96A7F00906ADF /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		2C3DEA9D2FA07C64E8C62721 /* Pods-TikTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikTok.debug.xcconfig"; path = "Target Support Files/Pods-TikTok/Pods-TikTok.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				0B88DA6A2B0432B00092A6DF /* RecordButton.swift */,
 				0BB62BDE2B1AA07D0093A4FF /* Notification */,
 				0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */,
+				0BD7C8AE2B2B79630053A60D /* PostCollectionViewCell.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				0B55C8D02AD4781600977D25 /* DatabaseManager.swift in Sources */,
 				0BF2B1742AF96A7F00906ADF /* AuthTextField.swift in Sources */,
 				0B55C8B52AD4770500977D25 /* ExploreViewController.swift in Sources */,
+				0BD7C8AF2B2B79630053A60D /* PostCollectionViewCell.swift in Sources */,
 				0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */,
 				0B55C8BD2AD4774A00977D25 /* UserListViewController.swift in Sources */,
 				0B55C8C32AD4776800977D25 /* SettingsViewController.swift in Sources */,

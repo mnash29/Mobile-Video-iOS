@@ -81,6 +81,8 @@ class TabBarViewController: UITabBarController {
             nav4.navigationItem.backButtonDisplayMode = .minimal
         }
 
+        nav4.navigationBar.tintColor = .label
+
         setViewControllers([nav1, nav2, cameraNav, nav3, nav4], animated: false)
         
     }

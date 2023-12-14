@@ -236,7 +236,7 @@ extension NotificationViewController: NotificationUserFollowTableViewCellDelegat
     func notificationUserFollowTableViewCell(_ cell: NotificationUserFollowTableViewCell, didTapFollowFor username: String) {
         DatabaseManager.shared.follow(username: username) { success in
             if !success {
-                print("Somthing failed")
+                print("Something failed")
             }
         }
     }
@@ -275,7 +275,7 @@ extension NotificationViewController: NotificationPostCommentTableViewCellDelega
 
 extension NotificationViewController: PostViewControllerDelegate {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
-        print("didTapCommentButtonFor not configured")
+        print("NotificationViewController.didTapCommentButtonFor not configured.")
     }
     
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
