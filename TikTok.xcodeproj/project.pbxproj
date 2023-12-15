@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B30B6B92B2CF4EC005D1993 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B30B6B82B2CF4EC005D1993 /* EditProfileViewController.swift */; };
 		0B3494B32AF05321009553D3 /* ExploreUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3494B22AF05321009553D3 /* ExploreUserCollectionViewCell.swift */; };
 		0B3494B52AF0532C009553D3 /* ExplorePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3494B42AF0532C009553D3 /* ExplorePostCollectionViewCell.swift */; };
 		0B3494B72AF05335009553D3 /* ExploreBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3494B62AF05335009553D3 /* ExploreBannerCollectionViewCell.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B30B6B82B2CF4EC005D1993 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		0B3494B22AF05321009553D3 /* ExploreUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B3494B42AF0532C009553D3 /* ExplorePostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePostCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B3494B62AF05335009553D3 /* ExploreBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBannerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				0B55C8C92AD477DF00977D25 /* PostViewController.swift */,
 				0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */,
 				0B88DA6C2B043CFD0092A6DF /* CaptionViewController.swift */,
+				0B30B6B82B2CF4EC005D1993 /* EditProfileViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -439,7 +442,8 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0B8243462AD48F1A00C26D8F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -537,6 +541,7 @@
 				0B55C8C12AD4775E00977D25 /* SignUpViewController.swift in Sources */,
 				0BD3AAEA2B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				0B55C8D22AD4782200977D25 /* AuthenticationManager.swift in Sources */,
+				0B30B6B92B2CF4EC005D1993 /* EditProfileViewController.swift in Sources */,
 				0B88DA6B2B0432B00092A6DF /* RecordButton.swift in Sources */,
 				0B55C8B92AD4772900977D25 /* NotificationViewController.swift in Sources */,
 				0B8D97A22AE9755A005A29A4 /* PostComment.swift in Sources */,
