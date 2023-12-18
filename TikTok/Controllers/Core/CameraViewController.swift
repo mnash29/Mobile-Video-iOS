@@ -181,6 +181,10 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
 
         recordedVideoURL = outputFileURL
 
+        if UserDefaults.standard.bool(forKey: "save_video") {
+            UISaveVideoAtPathToSavedPhotosAlbum(outputFileURL.path, nil, nil, nil)
+        }
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Next",
             style: .done,

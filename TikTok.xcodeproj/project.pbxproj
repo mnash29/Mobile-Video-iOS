@@ -38,6 +38,10 @@
 		0B8D97A22AE9755A005A29A4 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A12AE9755A005A29A4 /* PostComment.swift */; };
 		0B8D97A42AE979C4005A29A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A32AE979C4005A29A4 /* User.swift */; };
 		0B8D97A62AE97DB1005A29A4 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D97A52AE97DB1005A29A4 /* CommentTableViewCell.swift */; };
+		0B9BB5672B310535003B2284 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB5662B310535003B2284 /* SwitchTableViewCell.swift */; };
+		0B9BB5692B3107A2003B2284 /* SwitchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB5682B3107A2003B2284 /* SwitchCellViewModel.swift */; };
+		0B9BB56B2B310C18003B2284 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB56A2B310C18003B2284 /* SettingsSection.swift */; };
+		0B9BB56D2B310C46003B2284 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB56C2B310C46003B2284 /* SettingsOption.swift */; };
 		0B9F4A9B2B28ED9600496393 /* PicturePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F4A9A2B28ED9600496393 /* PicturePickerModel.swift */; };
 		0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360042AD08A41008467CF /* AppDelegate.swift */; };
 		0BA360072AD08A41008467CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360062AD08A41008467CF /* SceneDelegate.swift */; };
@@ -96,6 +100,10 @@
 		0B8D97A12AE9755A005A29A4 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		0B8D97A32AE979C4005A29A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0B8D97A52AE97DB1005A29A4 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		0B9BB5662B310535003B2284 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		0B9BB5682B3107A2003B2284 /* SwitchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellViewModel.swift; sourceTree = "<group>"; };
+		0B9BB56A2B310C18003B2284 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		0B9BB56C2B310C46003B2284 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		0B9F4A9A2B28ED9600496393 /* PicturePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePickerModel.swift; sourceTree = "<group>"; };
 		0BA360012AD08A41008467CF /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA360042AD08A41008467CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +196,7 @@
 				0BC9CFA42AEC649F00479F6F /* ExplorePostViewModel.swift */,
 				0BC9CFA82AEC64CF00479F6F /* ExploreUserViewModel.swift */,
 				0BD3AAEB2B23BDF500A9CD27 /* ProfileHeaderViewModel.swift */,
+				0B9BB5682B3107A2003B2284 /* SwitchCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 				0BB62BDE2B1AA07D0093A4FF /* Notification */,
 				0BD3AAE92B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift */,
 				0BD7C8AE2B2B79630053A60D /* PostCollectionViewCell.swift */,
+				0B9BB5662B310535003B2284 /* SwitchTableViewCell.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -296,6 +306,8 @@
 				0B8D97A32AE979C4005A29A4 /* User.swift */,
 				0BB62BD72B1A99AA0093A4FF /* Notification.swift */,
 				0B9F4A9A2B28ED9600496393 /* PicturePickerModel.swift */,
+				0B9BB56A2B310C18003B2284 /* SettingsSection.swift */,
+				0B9BB56C2B310C46003B2284 /* SettingsOption.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -514,10 +526,12 @@
 				0BF2B1722AF96A6A00906ADF /* AuthButton.swift in Sources */,
 				0B55C8D42AD4783500977D25 /* HapticsManager.swift in Sources */,
 				0B604E2B2AD60F42006D9553 /* Extensions.swift in Sources */,
+				0B9BB56D2B310C46003B2284 /* SettingsOption.swift in Sources */,
 				0BC9CF9D2AEC53FA00479F6F /* ExploreSection.swift in Sources */,
 				0B8D97A62AE97DB1005A29A4 /* CommentTableViewCell.swift in Sources */,
 				0B55C8D02AD4781600977D25 /* DatabaseManager.swift in Sources */,
 				0BF2B1742AF96A7F00906ADF /* AuthTextField.swift in Sources */,
+				0B9BB5672B310535003B2284 /* SwitchTableViewCell.swift in Sources */,
 				0B55C8B52AD4770500977D25 /* ExploreViewController.swift in Sources */,
 				0BD7C8AF2B2B79630053A60D /* PostCollectionViewCell.swift in Sources */,
 				0BC9CFA72AEC64BA00479F6F /* ExploreHashtagViewModel.swift in Sources */,
@@ -536,6 +550,7 @@
 				0BC9CFA92AEC64CF00479F6F /* ExploreUserViewModel.swift in Sources */,
 				0B3494B92AF053F1009553D3 /* ExploreHashtagCollectionViewCell.swift in Sources */,
 				0B55C8C52AD4778400977D25 /* TabBarViewController.swift in Sources */,
+				0B9BB5692B3107A2003B2284 /* SwitchCellViewModel.swift in Sources */,
 				0B8D97A42AE979C4005A29A4 /* User.swift in Sources */,
 				0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */,
 				0B55C8C12AD4775E00977D25 /* SignUpViewController.swift in Sources */,
@@ -549,6 +564,7 @@
 				0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */,
 				0B9F4A9B2B28ED9600496393 /* PicturePickerModel.swift in Sources */,
 				0B3494B52AF0532C009553D3 /* ExplorePostCollectionViewCell.swift in Sources */,
+				0B9BB56B2B310C18003B2284 /* SettingsSection.swift in Sources */,
 				0B55C8BB2AD4773100977D25 /* ProfileViewController.swift in Sources */,
 				0B55C8CE2AD4780100977D25 /* StorageManager.swift in Sources */,
 				0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */,

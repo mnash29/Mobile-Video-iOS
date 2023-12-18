@@ -6,20 +6,65 @@
 //
 
 import UIKit
+import SafariServices
 
 class SettingsViewController: UIViewController {
 
     private let tableView: UITableView = {
-        let view = UITableView(frame: .zero, style: .grouped)
-        view.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
 
-        return view
+        return table
     }()
+
+    var sections = [SettingsSection]()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        sections = [
+            SettingsSection(
+                title: "Preferences",
+                options: [
+                    SettingsOption(
+                        title: "Save Videos",
+                        handler: { }
+                    )
+                ]
+            ),
+            SettingsSection(
+                title: "Information",
+                options: [
+                    SettingsOption(
+                        title: "Terms of Service",
+                        handler: { [weak self] in
+                            DispatchQueue.main.async {
+                                guard let url = URL(string: "https://www.tiktok.com/legal/terms-of-service") else {
+                                    return
+                                }
+                                let vc = SFSafariViewController(url: url)
+                                self?.present(vc, animated: true)
+                            }
+                        }
+                    ),
+                    SettingsOption(
+                        title: "Privacy Policy",
+                        handler: { [weak self] in
+                            DispatchQueue.main.async {
+                                guard let url = URL(string: "https://www.tiktok.com/legal/privacy-policy") else {
+                                    return
+                                }
+                                let vc = SFSafariViewController(url: url)
+                                self?.present(vc, animated: true)
+                            }
+                        }
+                    )
+                ]
+            )
+        ]
 
         title = "Settings"
         view.backgroundColor = .systemBackground
@@ -101,14 +146,60 @@ extension SettingsViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource methods
 
 extension SettingsViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return sections[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = sections[indexPath.section].options[indexPath.row]
+
+        if model.title == "Save Videos" {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath
+            ) as? SwitchTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            cell.configure(
+                with: SwitchCellViewModel(
+                    title: model.title,
+                    isOn: UserDefaults.standard.bool(forKey: "save_video")
+                )
+            )
+
+            return cell
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Hello World"
+        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = model.title
+        
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = sections[indexPath.section].options[indexPath.row]
+        model.handler()
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].title
+    }
+}
+
+// MARK: - SwitchTableVieCellDelegate methods
+
+extension SettingsViewController: SwitchTableViewCellDelegate {
+    func switchTableViewCell(_ cell: SwitchTableViewCell, didUpdateSwitchTo isOn: Bool) {
+        print(isOn)
+
+        UserDefaults.standard.setValue(isOn, forKey: "save_video")
+    }
 }
