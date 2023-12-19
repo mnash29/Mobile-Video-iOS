@@ -7,6 +7,7 @@
 
 import UIKit
 import ProgressHUD
+import Appirater
 
 class CaptionViewController: UIViewController {
 
@@ -83,6 +84,7 @@ class CaptionViewController: UIViewController {
                     // Update database
                     DatabaseManager.shared.insertPost(fileName: newVideoName, caption: caption) { databaseUpdated in
                         if databaseUpdated {
+                            Appirater.tryToShowPrompt()
                             HapticsManager.shared.vibrate(for: .success)
                             ProgressHUD.dismiss()
                             // Reset camera and switch to feed

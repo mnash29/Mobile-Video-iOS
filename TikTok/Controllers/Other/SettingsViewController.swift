@@ -5,6 +5,7 @@
 //  Created by mnash29 on 10/9/23.
 //
 
+import StoreKit
 import UIKit
 import SafariServices
 
@@ -32,6 +33,36 @@ class SettingsViewController: UIViewController {
                     SettingsOption(
                         title: "Save Videos",
                         handler: { }
+                    )
+                ]
+            ),
+            SettingsSection(
+                title: "Enjoying TikTok?",
+                options: [
+                    SettingsOption(
+                        title: "Rate App",
+                        handler: {
+                            DispatchQueue.main.async {
+//                                Appirater.tryToShowPrompt()
+//                                UIApplication.shared.open(
+//                                    URL(string: "https://apps.apple.com/us/app/apple-store/id835599320")!,
+//                                    options: [:],
+//                                    completionHandler: nil
+//                                )
+                                let skView = SKStoreProductViewController()
+                                skView.loadProduct(
+                                    withParameters: [SKStoreProductParameterITunesItemIdentifier: 835599320]) { [weak self] success, error in
+                                        if success {
+                                            self?.present(skView, animated: true, completion: nil)
+                                        } else {
+                                            // Some error occurred
+                                            let alert = UIAlertController(title: "Woops", message: "Something went wrong.", preferredStyle: .alert)
+                                            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
+                                            self?.present(alert, animated: true)
+                                        }
+                                    }
+                            }
+                        }
                     )
                 ]
             ),
@@ -199,5 +230,13 @@ extension SettingsViewController: SwitchTableViewCellDelegate {
     func switchTableViewCell(_ cell: SwitchTableViewCell, didUpdateSwitchTo isOn: Bool) {
         HapticsManager.shared.vibrateForSeletion()
         UserDefaults.standard.setValue(isOn, forKey: "save_video")
+    }
+}
+
+// MARK: - SKStoreProductViewControllerDelegate methods
+
+extension SettingsViewController: SKStoreProductViewControllerDelegate {
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.presentingViewController?.dismiss(animated: true)
     }
 }
