@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PicturePickerModel {
+enum PicturePicker {
     case camera
     case photoLibrary
 }

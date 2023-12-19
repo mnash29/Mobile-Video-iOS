@@ -269,41 +269,4 @@ extension ExploreManager: PostViewControllerDelegate {
 
         delegate?.pushViewController(vc)
     }
-
-}
-
-struct ExploreResponse: Codable {
-    let banners: [Banner]
-    let trendingPosts: [Post]
-    let creators: [Creator]
-    let recentPosts: [Post]
-    let hashtags: [Hashtag]
-    let popular: [Post]
-    let recommended: [Post]
-}
-
-struct Banner: Codable {
-    let id: String
-    let image: String
-    let title: String
-    let action: String
-}
-
-struct Post: Codable {
-    let id: String
-    let image: String
-    let caption: String
-}
-
-struct Hashtag: Codable {
-    let tag: String
-    let image: String
-    let count: Int
-}
-
-struct Creator: Codable {
-    let id: String
-    let image: String
-    let username: String
-    let followers_count: Int
 }

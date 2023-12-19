@@ -300,7 +300,7 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
         present(actionSheet, animated: true)
     }
 
-    func presentProfilePicturePicker(type: PicturePickerModel) {
+    func presentProfilePicturePicker(type: PicturePicker) {
         let picker = UIImagePickerController()
         picker.sourceType = type == .camera ? .camera : .photoLibrary
         picker.delegate = self

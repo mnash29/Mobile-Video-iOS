@@ -42,7 +42,7 @@
 		0B9BB5692B3107A2003B2284 /* SwitchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB5682B3107A2003B2284 /* SwitchCellViewModel.swift */; };
 		0B9BB56B2B310C18003B2284 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB56A2B310C18003B2284 /* SettingsSection.swift */; };
 		0B9BB56D2B310C46003B2284 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BB56C2B310C46003B2284 /* SettingsOption.swift */; };
-		0B9F4A9B2B28ED9600496393 /* PicturePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F4A9A2B28ED9600496393 /* PicturePickerModel.swift */; };
+		0B9F4A9B2B28ED9600496393 /* PicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F4A9A2B28ED9600496393 /* PicturePicker.swift */; };
 		0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360042AD08A41008467CF /* AppDelegate.swift */; };
 		0BA360072AD08A41008467CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360062AD08A41008467CF /* SceneDelegate.swift */; };
 		0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA360082AD08A41008467CF /* HomeViewController.swift */; };
@@ -55,6 +55,11 @@
 		0BB62BDA2B1A9F990093A4FF /* NotificationUserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB62BD92B1A9F990093A4FF /* NotificationUserFollowTableViewCell.swift */; };
 		0BB62BE02B1AA0970093A4FF /* NotificationPostLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB62BDF2B1AA0970093A4FF /* NotificationPostLikeTableViewCell.swift */; };
 		0BB62BE22B1AA0A50093A4FF /* NotificationPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB62BE12B1AA0A50093A4FF /* NotificationPostCommentTableViewCell.swift */; };
+		0BBA74CB2B324828005DC7A2 /* ExploreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA74CA2B324828005DC7A2 /* ExploreResponse.swift */; };
+		0BBA74CD2B324865005DC7A2 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA74CC2B324865005DC7A2 /* Banner.swift */; };
+		0BBA74CF2B324879005DC7A2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA74CE2B324879005DC7A2 /* Post.swift */; };
+		0BBA74D12B32488C005DC7A2 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA74D02B32488C005DC7A2 /* Hashtag.swift */; };
+		0BBA74D32B3248A7005DC7A2 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA74D22B3248A7005DC7A2 /* Creator.swift */; };
 		0BBDB5352AE7048E004BBB1F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */; };
 		0BC9CF9B2AEC369B00479F6F /* trolls_low.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9A2AEC369B00479F6F /* trolls_low.mp4 */; };
 		0BC9CF9D2AEC53FA00479F6F /* ExploreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9CF9C2AEC53FA00479F6F /* ExploreSection.swift */; };
@@ -104,7 +109,7 @@
 		0B9BB5682B3107A2003B2284 /* SwitchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellViewModel.swift; sourceTree = "<group>"; };
 		0B9BB56A2B310C18003B2284 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		0B9BB56C2B310C46003B2284 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
-		0B9F4A9A2B28ED9600496393 /* PicturePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePickerModel.swift; sourceTree = "<group>"; };
+		0B9F4A9A2B28ED9600496393 /* PicturePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePicker.swift; sourceTree = "<group>"; };
 		0BA360012AD08A41008467CF /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA360042AD08A41008467CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA360062AD08A41008467CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +123,11 @@
 		0BB62BD92B1A9F990093A4FF /* NotificationUserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		0BB62BDF2B1AA0970093A4FF /* NotificationPostLikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPostLikeTableViewCell.swift; sourceTree = "<group>"; };
 		0BB62BE12B1AA0A50093A4FF /* NotificationPostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPostCommentTableViewCell.swift; sourceTree = "<group>"; };
+		0BBA74CA2B324828005DC7A2 /* ExploreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreResponse.swift; sourceTree = "<group>"; };
+		0BBA74CC2B324865005DC7A2 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		0BBA74CE2B324879005DC7A2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0BBA74D02B32488C005DC7A2 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
+		0BBA74D22B3248A7005DC7A2 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		0BBDB5342AE7048E004BBB1F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		0BC9CF9A2AEC369B00479F6F /* trolls_low.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = trolls_low.mp4; sourceTree = "<group>"; };
 		0BC9CF9C2AEC53FA00479F6F /* ExploreSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSection.swift; sourceTree = "<group>"; };
@@ -305,9 +315,14 @@
 				0BCCFA642AD7309D00151DDC /* PostModel.swift */,
 				0B8D97A32AE979C4005A29A4 /* User.swift */,
 				0BB62BD72B1A99AA0093A4FF /* Notification.swift */,
-				0B9F4A9A2B28ED9600496393 /* PicturePickerModel.swift */,
+				0B9F4A9A2B28ED9600496393 /* PicturePicker.swift */,
 				0B9BB56A2B310C18003B2284 /* SettingsSection.swift */,
 				0B9BB56C2B310C46003B2284 /* SettingsOption.swift */,
+				0BBA74CA2B324828005DC7A2 /* ExploreResponse.swift */,
+				0BBA74CC2B324865005DC7A2 /* Banner.swift */,
+				0BBA74CE2B324879005DC7A2 /* Post.swift */,
+				0BBA74D02B32488C005DC7A2 /* Hashtag.swift */,
+				0BBA74D22B3248A7005DC7A2 /* Creator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -555,24 +570,29 @@
 				0BA360092AD08A41008467CF /* HomeViewController.swift in Sources */,
 				0B55C8C12AD4775E00977D25 /* SignUpViewController.swift in Sources */,
 				0BD3AAEA2B23A20200A9CD27 /* ProfileHeaderCollectionReusableView.swift in Sources */,
+				0BBA74CF2B324879005DC7A2 /* Post.swift in Sources */,
+				0BBA74CB2B324828005DC7A2 /* ExploreResponse.swift in Sources */,
 				0B55C8D22AD4782200977D25 /* AuthenticationManager.swift in Sources */,
 				0B30B6B92B2CF4EC005D1993 /* EditProfileViewController.swift in Sources */,
 				0B88DA6B2B0432B00092A6DF /* RecordButton.swift in Sources */,
 				0B55C8B92AD4772900977D25 /* NotificationViewController.swift in Sources */,
+				0BBA74D12B32488C005DC7A2 /* Hashtag.swift in Sources */,
 				0B8D97A22AE9755A005A29A4 /* PostComment.swift in Sources */,
 				0B55C8BF2AD4775600977D25 /* SignInViewController.swift in Sources */,
 				0BCCFA652AD7309D00151DDC /* PostModel.swift in Sources */,
-				0B9F4A9B2B28ED9600496393 /* PicturePickerModel.swift in Sources */,
+				0B9F4A9B2B28ED9600496393 /* PicturePicker.swift in Sources */,
 				0B3494B52AF0532C009553D3 /* ExplorePostCollectionViewCell.swift in Sources */,
 				0B9BB56B2B310C18003B2284 /* SettingsSection.swift in Sources */,
 				0B55C8BB2AD4773100977D25 /* ProfileViewController.swift in Sources */,
 				0B55C8CE2AD4780100977D25 /* StorageManager.swift in Sources */,
+				0BBA74CD2B324865005DC7A2 /* Banner.swift in Sources */,
 				0BA360052AD08A41008467CF /* AppDelegate.swift in Sources */,
 				0BB62BE02B1AA0970093A4FF /* NotificationPostLikeTableViewCell.swift in Sources */,
 				0BA360072AD08A41008467CF /* SceneDelegate.swift in Sources */,
 				0BC9CFA12AEC545C00479F6F /* ExploreSectionType.swift in Sources */,
 				0B3494B72AF05335009553D3 /* ExploreBannerCollectionViewCell.swift in Sources */,
 				0BB62BDA2B1A9F990093A4FF /* NotificationUserFollowTableViewCell.swift in Sources */,
+				0BBA74D32B3248A7005DC7A2 /* Creator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
