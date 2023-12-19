@@ -12,7 +12,7 @@ import FirebaseStorage
 final class StorageManager {
     /// Shared singleton instance of the StorageManager
     public static let shared = StorageManager()
-    
+
     /// Storage bucket reference
     private let storageBucket = Storage.storage().reference()
 
@@ -23,7 +23,7 @@ final class StorageManager {
     }
 
     // MARK: - Public methods
-    
+
     /// Upload a new user video to Firebase
     /// - Parameters:
     ///   - url: Local file URL to video
@@ -33,12 +33,12 @@ final class StorageManager {
         guard let username = UserDefaults.standard.string(forKey: "username") else {
             return
         }
-        
+
         storageBucket.child("videos/\(username)/\(fileName)").putFile(from: url, metadata: nil) { _, error in
             completion(error == nil)
         }
     }
-    
+
     /// Upload a new user profile picture
     /// - Parameters:
     ///   - image: The UIImage to upload
@@ -53,8 +53,7 @@ final class StorageManager {
         storageBucket.child(path).putData(imageData, metadata: nil) { _, error in
             if let error = error {
                 completion(.failure(error))
-            }
-            else {
+            } else {
                 self.storageBucket.child(path).downloadURL { url, error in
                     guard let url = url else {
                         if let error = error {
@@ -68,7 +67,7 @@ final class StorageManager {
             }
         }
     }
-    
+
     /// Generate a new file name
     /// - Returns: Return a unique generated filename
     public func generateVideoName() -> String {
@@ -78,7 +77,7 @@ final class StorageManager {
 
         return  "\(uuidString)_\(number)_\(unixTimestamp).mov"
     }
-    
+
     /// Get download URL of video post
     /// - Parameters:
     ///   - post: Post model to URL for

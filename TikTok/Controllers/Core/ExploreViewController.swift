@@ -88,7 +88,7 @@ class ExploreViewController: UIViewController {
                 cells: ExploreManager.shared.getExploreRecentPosts().compactMap({
                     return ExploreCell.post(viewModel: $0)
                 })
-            ),
+            )
         ]
     }
 

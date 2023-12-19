@@ -122,10 +122,10 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postModel = posts[indexPath.row]
-        
+
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: PostCollectionViewCell.identifier,
             for: indexPath
@@ -140,7 +140,7 @@ extension ProfileViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+
         // Open post
         HapticsManager.shared.vibrateForSeletion()
         let post = posts[indexPath.row]
@@ -151,7 +151,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         let width: CGFloat = (view.width - 12) / 3
         return CGSize(width: width, height: width * 1.5)
     }
@@ -233,8 +233,7 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
             // Edit profile
             let navVC = UINavigationController(rootViewController: EditProfileViewController())
             present(navVC, animated: true)
-        }
-        else {
+        } else {
             // Follow or unfollow the current users profile being viewed
             if isFollower {
                 DatabaseManager.shared.updateRelationship(for: user, follow: false) { [weak self] success in
@@ -243,35 +242,32 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
                             self?.isFollower = false
                             self?.collectionView.reloadData()
                         }
-                    }
-                    else {
+                    } else {
                         // Display error alert
                     }
                 }
-            }
-            else {
+            } else {
                 DatabaseManager.shared.updateRelationship(for: user, follow: true) { [weak self] success in
                     if success {
                         DispatchQueue.main.async {
                             self?.isFollower = true
                             self?.collectionView.reloadData()
                         }
-                    }
-                    else {
+                    } else {
                         // Display error alert
                     }
                 }
             }
         }
     }
-    
+
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowersButtonWith viewModel: ProfileHeaderViewModel) {
         HapticsManager.shared.vibrateForSeletion()
         let vc = UserListViewController(type: .followers, user: user)
         vc.users = followers
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowingButtonWith viewModel: ProfileHeaderViewModel) {
         HapticsManager.shared.vibrateForSeletion()
         let vc = UserListViewController(type: .following, user: user)
@@ -283,7 +279,7 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
 
         guard isCurrentUserProfile else { return }
         HapticsManager.shared.vibrateForSeletion()
-        
+
         let actionSheet = UIAlertController(
             title: "Profile Picture",
             message: nil,
@@ -322,7 +318,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
 
@@ -359,7 +355,7 @@ extension ProfileViewController: PostViewControllerDelegate {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
         // Present Comments
     }
-    
+
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
         // Push another profile
     }

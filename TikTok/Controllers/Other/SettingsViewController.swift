@@ -86,14 +86,14 @@ class SettingsViewController: UIViewController {
             width: view.width,
             height: 100
         ))
-        
+
         let button = UIButton(frame: CGRect(
             x: (view.width - 200) / 2,
             y: 25,
             width: 200,
             height: 50
         ))
-        
+
         button.setTitle("Sign Out", for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
         button.addTarget(self, action: #selector(didTapSignOut), for: .touchUpInside)
@@ -122,8 +122,7 @@ class SettingsViewController: UIViewController {
                         self?.present(navVC, animated: true)
                         self?.navigationController?.popToRootViewController(animated: true)
                         self?.tabBarController?.selectedIndex = 0
-                    }
-                    else {
+                    } else {
                         let alert = UIAlertController(title: "Woops", message: "Something went wrong while signing out. Please try again.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
                         self?.present(alert, animated: true)
@@ -154,7 +153,7 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].options.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section].options[indexPath.row]
 
@@ -179,7 +178,7 @@ extension SettingsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = model.title
-        
+
         return cell
     }
 

@@ -71,7 +71,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ))
         toolbar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapKeyboardDone)),
+            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapKeyboardDone))
         ]
         toolbar.sizeToFit()
         emailField.inputAccessoryView = toolbar
@@ -159,8 +159,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 if signUpSuccess {
                     HapticsManager.shared.vibrate(for: .success)
                     self?.dismiss(animated: true)
-                }
-                else {
+                } else {
                     HapticsManager.shared.vibrate(for: .error)
                     let alert = UIAlertController(
                         title: "Sign Up Failed",
@@ -177,7 +176,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @objc func didTapTermsOfService() {
         didTapKeyboardDone()
 
-        guard let url = URL(string: "https://www.tiktok.com/legal/terms-of-service") else  {
+        guard let url = URL(string: "https://www.tiktok.com/legal/terms-of-service") else {
             return
         }
 

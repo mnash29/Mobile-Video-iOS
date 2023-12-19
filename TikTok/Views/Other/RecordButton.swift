@@ -31,7 +31,7 @@ class RecordButton: UIButton {
     }
 
     // MARK: - Public
-    
+
     enum State {
         case recording
         case notRecording

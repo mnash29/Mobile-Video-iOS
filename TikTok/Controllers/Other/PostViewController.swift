@@ -167,7 +167,7 @@ class PostViewController: UIViewController {
                 switch result {
                 case .success(let url):
                     strongSelf.player = AVPlayer(url: url)
-                    
+
                     strongSelf.addPlayerSubLayer(with: strongSelf.player)
                     strongSelf.playVideo(with: strongSelf.player)
                     strongSelf.stopActivityIndicator()

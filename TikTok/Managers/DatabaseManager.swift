@@ -12,12 +12,12 @@ import FirebaseDatabase
 final class DatabaseManager {
     /// Shared singleton instance of the `DatabaseManager`
     public static let shared = DatabaseManager()
-    
+
     /// Reference to the `Database` object
     private let database = Database.database().reference()
 
     private init() {}
-    
+
     /// Represents the currently signed in username
     /// - Returns: Return the current username signed in
     private func getUserDefaultUsername() -> String? {
@@ -25,7 +25,7 @@ final class DatabaseManager {
     }
 
     // Public methods
-    
+
     /// Attempt to insert a new user object
     /// - Parameters:
     ///   - email: The user email address
@@ -66,7 +66,7 @@ final class DatabaseManager {
             })
         }
     }
-    
+
     /// Get the username for a given email
     /// - Parameters:
     ///   - email: The email address to query
@@ -86,13 +86,13 @@ final class DatabaseManager {
             }
         }
     }
-    
+
     /// Get current user's notifications
     /// - Parameter completion: Async callback of type `[Notification]`
     public func getNotifications(completion: @escaping ([Notification]) -> Void) {
         completion(Notification.mockData())
     }
-    
+
     /// Mark a notification as hidden
     /// - Parameters:
     ///   - notificationID: Notification identifier
@@ -100,7 +100,7 @@ final class DatabaseManager {
     public func markNotificationAsHidden(notificationID: String, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
-    
+
     /// Attempt to insert a new post
     /// - Parameters:
     ///   - fileName: File name to insert for post
@@ -133,8 +133,7 @@ final class DatabaseManager {
                     }
                     completion(true)
                 }
-            }
-            else {
+            } else {
                 value["posts"] = [newEntry]
                 self?.database.child("users").child(username).setValue(value) { error, _ in
                     guard error == nil else {
@@ -146,7 +145,7 @@ final class DatabaseManager {
             }
         }
     }
-    
+
     /// Get all posts for a given user
     /// - Parameters:
     ///   - user: The user name
@@ -154,7 +153,7 @@ final class DatabaseManager {
     public func getPosts(for user: User, completion: @escaping ([PostModel]) -> Void) {
         let path = "users/\(user.username.lowercased())/posts"
         database.child(path).observeSingleEvent(of: .value) { snapshot in
-            guard let posts = snapshot.value as? [[String: String]] else { 
+            guard let posts = snapshot.value as? [[String: String]] else {
                 completion([])
                 return
             }
@@ -168,11 +167,11 @@ final class DatabaseManager {
                 model.caption = $0["caption"] ?? ""
                 return model
             })
-            
+
             completion(models)
         }
     }
-    
+
     /// Get the target user relationship with current user
     /// - Parameters:
     ///   - user: Target user to check following status
@@ -190,7 +189,7 @@ final class DatabaseManager {
             completion(usernameCollection)
         }
     }
-    
+
     /// Check if a relationship is valid
     /// - Parameters:
     ///   - user: Target user
@@ -208,7 +207,7 @@ final class DatabaseManager {
             completion(usernameCollection.contains(self.getUserDefaultUsername()?.lowercased() ?? ""))
         }
     }
-    
+
     /// Update follow status for target user
     /// - Parameters:
     ///   - user: Target user
@@ -249,8 +248,7 @@ final class DatabaseManager {
                     }
                 }
             }
-        }
-        else {
+        } else {
             // Remove from  current users's following group
             let followingPath = "users/\(currentUsername)/following"
             database.child(followingPath).observeSingleEvent(of: .value) { snapshot in

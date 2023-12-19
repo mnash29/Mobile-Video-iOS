@@ -8,7 +8,7 @@
 import UIKit
 
 class ExploreBannerCollectionViewCell: UICollectionViewCell {
-    
+
     static let identifier = "ExploreBannerCollectionViewCell"
 
     private let imageView: UIImageView = {

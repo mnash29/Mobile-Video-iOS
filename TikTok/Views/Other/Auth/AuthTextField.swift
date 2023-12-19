@@ -17,7 +17,7 @@ class AuthTextField: UITextField {
         var title: String {
             switch self {
             case .username: return "Username"
-            case .email : return "Email Address"
+            case .email: return "Email Address"
             case .password: return "Password"
             }
         }

@@ -32,4 +32,3 @@ struct PostComment {
         return comments
     }
 }
-

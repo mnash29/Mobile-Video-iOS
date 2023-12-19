@@ -82,8 +82,7 @@ class CameraViewController: UIViewController {
         if previewLayer != nil {
             previewLayer?.removeFromSuperlayer()
             previewLayer = nil
-        }
-        else {
+        } else {
             captureSession.stopRunning()
             tabBarController?.tabBar.isHidden = false
             tabBarController?.selectedIndex = 0
@@ -95,8 +94,7 @@ class CameraViewController: UIViewController {
             recordButton.toggle(for: .notRecording)
             captureOutput.stopRecording()
             HapticsManager.shared.vibrateForSeletion()
-        }
-        else {
+        } else {
             guard var url = FileManager.default.urls(
                 for: .documentDirectory,
                 in: .userDomainMask

@@ -10,7 +10,7 @@ import UIKit
 
 /// Delegate interface to notify manager of events
 protocol ExploreManagerDelegate: AnyObject {
-    
+
     /// Notify a view controller should be pushed
     /// - Parameter vc: The view controller to present
     func pushViewController(_ vc: UIViewController)
@@ -25,7 +25,7 @@ final class ExploreManager {
 
     /// Shared singleton instance of the `ExploreManager`
     static let shared = ExploreManager()
-    
+
     /// Delegate to notify of event
     weak var delegate: ExploreManagerDelegate?
 
@@ -178,7 +178,7 @@ final class ExploreManager {
             }
         })
     }
-    
+
     /// Get explore data for popular posts
     /// - Returns: Return an optional collection of `ExplorePostViewModel`
     public func getExplorePopularPosts() -> [ExplorePostViewModel] {
@@ -236,7 +236,7 @@ final class ExploreManager {
     }
 
     // MARK: - Private
-    
+
     /// Parase explore JSON data
     /// - Returns: Returns an optional response model
     private func parseExploreData() -> ExploreResponse? {
@@ -248,8 +248,7 @@ final class ExploreManager {
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
             return try JSONDecoder().decode(ExploreResponse.self, from: data)
-        }
-        catch {
+        } catch {
             print(error)
             return nil
         }
@@ -263,7 +262,7 @@ extension ExploreManager: PostViewControllerDelegate {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
         print("ExploreManager.didTapCommentButtonFor not configured.")
     }
-    
+
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
         let user = post.user
         let vc = ProfileViewController(user: user)

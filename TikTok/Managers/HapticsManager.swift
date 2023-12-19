@@ -25,7 +25,7 @@ final class HapticsManager {
             generator.selectionChanged()
         }
     }
-    
+
     /// Trigger feedback vibration based on event type
     /// - Parameter type: Success, Error, or Warning feedback types
     public func vibrate(for type: UINotificationFeedbackGenerator.FeedbackType) {

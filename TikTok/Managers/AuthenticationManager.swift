@@ -16,26 +16,26 @@ final class AuthManager {
     // MARK: - Init
 
     private init() {}
-    
+
     /// Represents methods for sign-in
     enum SignInMethod {
         case email
         case facebook
         case google
     }
-    
+
     /// Represents errors during authentication
     enum AuthError: Error {
         case signInFailed
     }
 
     // MARK: Public methods
-    
+
     /// Represents if user is signed in
     public var isSignedIn: Bool {
         return Auth.auth().currentUser != nil
     }
-    
+
     /// Attempt user authentication
     /// - Parameters:
     ///   - email: User email
@@ -46,8 +46,7 @@ final class AuthManager {
             guard result != nil, error == nil else {
                 if let error = error {
                     completion(.failure(error))
-                }
-                else {
+                } else {
                     completion(.failure(AuthError.signInFailed))
                 }
                 return
@@ -64,7 +63,7 @@ final class AuthManager {
             completion(.success(email))
         }
     }
-    
+
     /// Attempt user create
     /// - Parameters:
     ///   - username: The requested username
@@ -93,15 +92,14 @@ final class AuthManager {
                                               completion: completion)
         }
     }
-    
+
     /// Attempt user sign-out
     /// - Parameter completion: Async callback of type `Bool`
     public func signOut(completion: (Bool) -> Void) {
         do {
             try Auth.auth().signOut()
             completion(true)
-        }
-        catch {
+        } catch {
             print(error)
             completion(false)
         }

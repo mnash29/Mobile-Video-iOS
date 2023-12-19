@@ -73,7 +73,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         ))
         toolbar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapKeyboardDone)),
+            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapKeyboardDone))
         ]
         toolbar.sizeToFit()
         emailField.inputAccessoryView = toolbar
@@ -187,7 +187,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @objc func didTapForgotPassword() {
         didTapKeyboardDone()
 
-        guard let url = URL(string: "https://www.tiktok.com/forgot-password") else  {
+        guard let url = URL(string: "https://www.tiktok.com/forgot-password") else {
             return
         }
 

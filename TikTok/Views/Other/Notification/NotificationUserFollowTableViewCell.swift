@@ -71,7 +71,7 @@ class NotificationUserFollowTableViewCell: UITableViewCell {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))
         avatarImageView.addGestureRecognizer(tap)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -89,7 +89,7 @@ class NotificationUserFollowTableViewCell: UITableViewCell {
             y: 3,
             width: iconSize,
             height: iconSize
-        )        
+        )
 
         followButton.sizeToFit()
         followButton.frame = CGRect(

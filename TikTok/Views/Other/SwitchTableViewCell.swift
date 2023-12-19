@@ -43,7 +43,7 @@ class SwitchTableViewCell: UITableViewCell {
         contentView.addSubview(_switch)
         _switch.addTarget(self, action: #selector(didChangeSwitchValue), for: .valueChanged)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

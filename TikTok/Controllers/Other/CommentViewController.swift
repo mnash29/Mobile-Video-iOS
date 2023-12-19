@@ -20,6 +20,7 @@ class CommentViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
 
+        tableView.backgroundColor = .secondarySystemBackground
         tableView.register(
             CommentTableViewCell.self,
             forCellReuseIdentifier: CommentTableViewCell.identifier
@@ -32,7 +33,7 @@ class CommentViewController: UIViewController {
         let button = UIButton()
 
         button.setBackgroundImage(UIImage(systemName: "xmark"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = .label
         return button
     }()
 
@@ -52,7 +53,7 @@ class CommentViewController: UIViewController {
 
         view.addSubview(closeButton)
         closeButton.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
-        view.backgroundColor = .white
+        view.backgroundColor = .secondarySystemBackground
         fetchPostComments()
 
         view.addSubview(tableView)
@@ -108,6 +109,5 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 
 }

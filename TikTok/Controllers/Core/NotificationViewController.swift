@@ -46,7 +46,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.tintColor = .label
         spinner.startAnimating()
-        
+
         return spinner
     }()
 
@@ -108,8 +108,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate {
         if notifications.isEmpty {
             noNotificationLabel.isHidden = false
             tableView.isHidden = true
-        }
-        else {
+        } else {
             noNotificationLabel.isHidden = true
             tableView.isHidden = false
         }
@@ -248,7 +247,7 @@ extension NotificationViewController: NotificationUserFollowTableViewCellDelegat
             }
         }
     }
-    
+
     func notificationUserFollowTableViewCell(_ cell: NotificationUserFollowTableViewCell, didTapAvatarFor username: String) {
         HapticsManager.shared.vibrateForSeletion()
         let vc = ProfileViewController(
@@ -286,7 +285,7 @@ extension NotificationViewController: PostViewControllerDelegate {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
         print("NotificationViewController.didTapCommentButtonFor not configured.")
     }
-    
+
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
         let user = post.user
         let vc = ProfileViewController(user: user)
