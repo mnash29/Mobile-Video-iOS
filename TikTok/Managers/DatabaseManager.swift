@@ -8,19 +8,29 @@
 import Foundation
 import FirebaseDatabase
 
+/// Manager for database operations
 final class DatabaseManager {
+    /// Shared singleton instance of the `DatabaseManager`
     public static let shared = DatabaseManager()
-
+    
+    /// Reference to the `Database` object
     private let database = Database.database().reference()
 
     private init() {}
-
+    
+    /// Represents the currently signed in username
+    /// - Returns: Return the current username signed in
     private func getUserDefaultUsername() -> String? {
         return UserDefaults.standard.string(forKey: "username")
     }
 
     // Public methods
-
+    
+    /// Attempt to insert a new user object
+    /// - Parameters:
+    ///   - email: The user email address
+    ///   - username: The user name
+    ///   - completion: Async callback of type `Bool`
     public func insertUser(with email: String, username: String, completion: @escaping (Bool) -> Void) {
         // Get current users key
         database.child("users").observeSingleEvent(of: .value) { [weak self] snapshot, _  in
@@ -56,7 +66,11 @@ final class DatabaseManager {
             })
         }
     }
-
+    
+    /// Get the username for a given email
+    /// - Parameters:
+    ///   - email: The email address to query
+    ///   - completion: Async callback of type `Result`
     public func getUsername(for email: String, completion: @escaping (String?) -> Void) {
         database.child("users").observeSingleEvent(of: .value) { snapshot, _  in
             guard let users = snapshot.value as? [String: [String: Any]] else {
@@ -72,19 +86,26 @@ final class DatabaseManager {
             }
         }
     }
-
+    
+    /// Get current user's notifications
+    /// - Parameter completion: Async callback of type `[Notification]`
     public func getNotifications(completion: @escaping ([Notification]) -> Void) {
         completion(Notification.mockData())
     }
-
+    
+    /// Mark a notification as hidden
+    /// - Parameters:
+    ///   - notificationID: Notification identifier
+    ///   - completion: Async callback for type `Bool`
     public func markNotificationAsHidden(notificationID: String, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
-
-    public func follow(username: String, completion: @escaping (Bool) -> Void) {
-        completion(true)
-    }
-
+    
+    /// Attempt to insert a new post
+    /// - Parameters:
+    ///   - fileName: File name to insert for post
+    ///   - caption: Caption to insert for post
+    ///   - completion: Async callback of type `Bool`
     public func insertPost(fileName: String, caption: String, completion: @escaping (Bool) -> Void) {
         guard let username = getUserDefaultUsername() else {
             completion(false)
@@ -125,7 +146,11 @@ final class DatabaseManager {
             }
         }
     }
-
+    
+    /// Get all posts for a given user
+    /// - Parameters:
+    ///   - user: The user name
+    ///   - completion: Async callback of type `[PostModel]`
     public func getPosts(for user: User, completion: @escaping ([PostModel]) -> Void) {
         let path = "users/\(user.username.lowercased())/posts"
         database.child(path).observeSingleEvent(of: .value) { snapshot in
@@ -147,7 +172,12 @@ final class DatabaseManager {
             completion(models)
         }
     }
-
+    
+    /// Get the target user relationship with current user
+    /// - Parameters:
+    ///   - user: Target user to check following status
+    ///   - type: Type to be checked
+    ///   - completion: Async callback of type `[String]`
     public func getRelationships(for user: User, type: UserListViewController.ListType, completion: @escaping ([String]) -> Void) {
         let path = "users/\(user.username.lowercased())/\(type.rawValue)"
 
@@ -160,7 +190,12 @@ final class DatabaseManager {
             completion(usernameCollection)
         }
     }
-
+    
+    /// Check if a relationship is valid
+    /// - Parameters:
+    ///   - user: Target user
+    ///   - type: Type to check
+    ///   - completion: Async callback of type `Bool`
     public func isValidRelationship(for user: User, type: UserListViewController.ListType, completion: @escaping (Bool) -> Void) {
         let path = "users/\(user.username.lowercased())/\(type.rawValue)"
 
@@ -173,7 +208,12 @@ final class DatabaseManager {
             completion(usernameCollection.contains(self.getUserDefaultUsername()?.lowercased() ?? ""))
         }
     }
-
+    
+    /// Update follow status for target user
+    /// - Parameters:
+    ///   - user: Target user
+    ///   - follow: Follow or unfollow status
+    ///   - completion: Async callback of type `Bool`
     public func updateRelationship(for user: User, follow: Bool, completion: @escaping (Bool) -> Void) {
         guard let currentUsername = getUserDefaultUsername()?.lowercased() else { return }
 

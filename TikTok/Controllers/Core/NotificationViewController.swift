@@ -235,9 +235,16 @@ extension NotificationViewController: UITableViewDataSource {
 
 extension NotificationViewController: NotificationUserFollowTableViewCellDelegate {
     func notificationUserFollowTableViewCell(_ cell: NotificationUserFollowTableViewCell, didTapFollowFor username: String) {
-        DatabaseManager.shared.follow(username: username) { success in
+        DatabaseManager.shared.updateRelationship(
+            for: User(
+                username: username,
+                profilePictureURL: nil,
+                identifier: UUID().uuidString
+            ),
+            follow: true
+        ) { success in
             if !success {
-                print("Something failed")
+                // something went wrong
             }
         }
     }

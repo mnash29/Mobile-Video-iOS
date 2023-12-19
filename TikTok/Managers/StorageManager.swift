@@ -8,9 +8,12 @@
 import UIKit
 import FirebaseStorage
 
+/// Manager object that deals with Firebase storage operations
 final class StorageManager {
+    /// Shared singleton instance of the StorageManager
     public static let shared = StorageManager()
-
+    
+    /// Storage bucket reference
     private let storageBucket = Storage.storage().reference()
 
     private init() {}
@@ -20,7 +23,12 @@ final class StorageManager {
     }
 
     // MARK: - Public methods
-
+    
+    /// Upload a new user video to Firebase
+    /// - Parameters:
+    ///   - url: Local file URL to video
+    ///   - fileName: Desired video file upload name
+    ///   - completion: Async callback result closure
     public func uploadVideo(from url: URL, fileName: String, completion: @escaping (Bool) -> Void) {
         guard let username = UserDefaults.standard.string(forKey: "username") else {
             return
@@ -30,7 +38,11 @@ final class StorageManager {
             completion(error == nil)
         }
     }
-
+    
+    /// Upload a new user profile picture
+    /// - Parameters:
+    ///   - image: The UIImage to upload
+    ///   - completion: Async callback of Result
     public func uploadProfilePicture(with image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let username = getUsername() else { return }
 
@@ -56,7 +68,9 @@ final class StorageManager {
             }
         }
     }
-
+    
+    /// Generate a new file name
+    /// - Returns: Return a unique generated filename
     public func generateVideoName() -> String {
         let uuidString = UUID().uuidString
         let number = Int.random(in: 0...1000)
@@ -64,7 +78,11 @@ final class StorageManager {
 
         return  "\(uuidString)_\(number)_\(unixTimestamp).mov"
     }
-
+    
+    /// Get download URL of video post
+    /// - Parameters:
+    ///   - post: Post model to URL for
+    ///   - completion: Async callback of Result
     func getDownloadURL(for post: PostModel, completion: @escaping (Result<URL, Error>) -> Void) {
         storageBucket.child(post.videoChildPath).downloadURL { url, error in
             if let error = error {
