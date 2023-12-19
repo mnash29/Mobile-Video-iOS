@@ -238,6 +238,8 @@ extension HomeViewController: PostViewControllerDelegate {
             forYouPagingController.dataSource = nil
         }
 
+        HapticsManager.shared.vibrateForSeletion()
+
         let vc = CommentViewController(post: post)
         vc.delegate = self
 

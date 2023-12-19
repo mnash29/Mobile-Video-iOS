@@ -276,6 +276,8 @@ class PostViewController: UIViewController {
     }
 
     @objc private func didDoubleTap(_ gesture: UITapGestureRecognizer) {
+        HapticsManager.shared.vibrateForSeletion()
+
         let touchPoint = gesture.location(in: view)
 
         let imageView = UIImageView(image: UIImage(systemName: "heart.fill"))
