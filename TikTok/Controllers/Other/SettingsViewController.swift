@@ -63,6 +63,20 @@ class SettingsViewController: UIViewController {
                                     }
                             }
                         }
+                    ),
+                    SettingsOption(
+                        title: "Share App",
+                        handler: { [weak self] in
+                            DispatchQueue.main.async {
+                                guard let url = URL(string: "https://apps.apple.com/us/app/apple-store/id835599320") else { return }
+
+                                let vc = UIActivityViewController(
+                                    activityItems: [url],
+                                    applicationActivities: []
+                                )
+                                self?.present(vc, animated: true)
+                            }
+                        }
                     )
                 ]
             ),
